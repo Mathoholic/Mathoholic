@@ -43,12 +43,12 @@ Led the development of robust ETL microservices for 1ViewETL, a web application 
 
 ## 📄 **Certifications**
 
-- Python
-- Power BI
-- Tableau
-- SQL
-- MS Excel
-- DBT (Data Build Tool)
+- [Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60)
+- [Power BI](https://www.udemy.com/certificate/UC-44e6e979-0288-461b-a7aa-eb28afe93ff0/)
+- [Tableau](https://coursera.org/share/47754a838923295e841e3b772d74c8fc)
+- [SQL](https://www.udemy.com/certificate/UC-b716f3ea-af2b-48af-bdb7-e93a15359700/)
+- [MS Excel](https://www.coursera.org/account/accomplishments/verify/836TMNM5DYFS?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)
+- [DBT (Data Build Tool)](https://www.linkedin.com/learning/certificates/6e70788ea26944ad1dc2490eae80ac6239486fc89431b8e8d96629f4aaa9dfe9?trk=share_certificate)
 
 ---
 
