@@ -55,6 +55,7 @@ Led the development of robust ETL microservices for 1ViewETL, a web application 
 ## 🚀 **Connect with Me**
 
 - **LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/mathoholic/)
+- <a href="https://www.linkedin.com/in/mathoholic/" target="_blank">LinkedIn Profile</a>
 - **Tableau Public:** [Tableau Profile](https://public.tableau.com/app/profile/mathoholiclite/vizzes)
 - **Maven Analytics:** [Maven Analytics Profile](https://mavenanalytics.io/profile/Shantanu-Sharma/188954812)
 
