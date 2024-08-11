@@ -19,6 +19,13 @@ I am an experienced Data Scientist with a strong foundation in data analysis, da
 
 ## 💼 **Professional Experience**
 
+### **Data Scientist | 1ViewApps.com**
+
+Led the development of robust ETL microservices for 1ViewETL, a web application focused on extracting and processing data for enhanced data-driven insights.
+- **Data Extraction:** Designed and implemented a highly efficient data extraction system that integrates with various APIs, enabling high-throughput data retrieval and processing.
+- **Asynchronous Processing:** Employed Celery as a distributed task queue for asynchronous ETL processing, leveraging RabbitMQ as the message broker to handle large volumes of data efficiently.
+- **Product Management:** Ensuring smooth user journey and effective communication across teams involved in the development of the product.
+
 ### **Associate Data Scientist | KDataScience Solutions Pvt. Ltd.**
 
 - Developed and optimized data pipelines using Python and MSSQL for Power BI reports, ensuring efficient data flow and accurate reporting.
