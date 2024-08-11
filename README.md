@@ -26,7 +26,7 @@ Led the development of robust ETL microservices for 1ViewETL, a web application 
 - **Asynchronous Processing:** Employed Celery as a distributed task queue for asynchronous ETL processing, leveraging RabbitMQ as the message broker to handle large volumes of data efficiently.
 - **Product Management:** Ensuring smooth user journey and effective communication across teams involved in the development of the product.
 
-### **Associate Data Scientist | KDataScience Solutions Pvt. Ltd.**
+### **Associate Data Scientist | [KDataScience Solutions Pvt. Ltd.](https://kdatascience.com/)**
 
 - Developed and optimized data pipelines using Python and MSSQL for Power BI reports, ensuring efficient data flow and accurate reporting.
 - Managed and validated data from various sources, including APIs and portals, using the Python library Pydantic to maintain high data quality.
