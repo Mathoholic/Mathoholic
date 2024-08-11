@@ -43,7 +43,7 @@ Led the development of robust ETL microservices for 1ViewETL, a web application 
 
 ## 📄 **Certifications**
 
-- [Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60){:target="_blank"}
+- [Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60)
 - [Power BI](https://www.udemy.com/certificate/UC-44e6e979-0288-461b-a7aa-eb28afe93ff0/)
 - [Tableau](https://coursera.org/share/47754a838923295e841e3b772d74c8fc)
 - [SQL](https://www.udemy.com/certificate/UC-b716f3ea-af2b-48af-bdb7-e93a15359700/)
