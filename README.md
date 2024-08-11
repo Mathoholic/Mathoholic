@@ -28,22 +28,6 @@ I am an experienced Data Scientist with a strong foundation in data analysis, da
 
 ---
 
-## 📈 **Key Projects**
-
-### **Project 1: Entertainment Industry Client**
-- Managed the maintenance of a Data Warehouse and established reliable data pipelines.
-- Conducted periodic data collection through APIs and CSVs, and integrated additional features into Power BI Dashboards.
-
-### **Project 2: Tech Solutions Industry Client**
-- Managed a complex and normalized CRM-based dataset and established a data warehouse with appropriate facts and dimensions.
-- Restructured data in MSSQL for Power BI Reports and developed reliable data pipelines.
-
-### **Project 3: Asynchronous ETL Services for 1ViewETL App**
-- Designed and implemented a Python-based YouTube data extraction system, optimizing data retrieval and processing for high throughput.
-- Employed Celery as a distributed task queue for asynchronous processing, leveraging RabbitMQ as the message broker.
-
----
-
 ## 🎓 **Education**
 
 - **Bachelor of Mathematics (Hons)** - Ambedkar University Delhi (2015-2020)
@@ -69,4 +53,4 @@ I am an experienced Data Scientist with a strong foundation in data analysis, da
 
 ---
 
-Thank you for visiting my GitHub profile. Feel free to explore my projects and repositories. If you have any questions or would like to collaborate, don't hesitate to reach out!
+Thank you for visiting my GitHub profile. Feel free to explore my projects and repositories. If you have any questions or want to collaborate, please reach out!
