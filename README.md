@@ -5,6 +5,11 @@ Building production-grade AI/ETL systems, scalable APIs, and LLM-driven applicat
 
 ---
 
+## 📚 Blog & Writings  
+Check out my technical deep dives on [mathoholic.dev](https://mathoholic.dev/)
+
+---
+
 ## 🔧 Core Skills  
 - **Languages:** Python, Go, SQL (MSSQL, PostgreSQL, MySQL)  
 - **Data Infra:** FastAPI, MongoDB, Vector DBs, RabbitMQ, Celery  
