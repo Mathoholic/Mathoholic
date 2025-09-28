@@ -38,7 +38,9 @@ Building production-grade AI/ETL systems, scalable APIs, and LLM-driven applicat
 ### **Data Scientist – [Centocode](https://www.centocode.com)** *(Sep 2024 – Present)*  
 - Building **LLM-based apps** and **RAG pipelines** with FastAPI + vector DBs.  
 - Designing **MongoDB schemas** and vector stores for high-performance querying.  
-- Shipping **production APIs** integrating AI models into live systems.  
+- Shipping **production APIs** integrating AI models into live systems.
+- **Backend Engineering:** Designed modular FastAPI & Go microservices with JWT auth, API integrations, and inter-service communication.
+- **Analytics Integration:** Enabled embedded dashboards (Power BI, Superset) within platform environments.
 
 ### **Data Scientist – [1ViewApps.com](https://1viewapps.com/etl/#top)**  
 - Architected **ETL microservices** with RabbitMQ + Celery for async data extraction.  
