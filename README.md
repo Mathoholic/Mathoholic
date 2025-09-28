@@ -87,3 +87,7 @@ Check out my technical deep dives on [mathoholic.dev](https://mathoholic.dev)
 - [LinkedIn](https://www.linkedin.com/in/mathoholic/)  
 - [Tableau Public](https://public.tableau.com/app/profile/mathoholiclite/vizzes)  
 - [Maven Analytics](https://mavenanalytics.io/profile/Shantanu-Sharma/188954812)
+
+
+## Credits
+Theme originally created by [David Darnes](https://github.com/daviddarnes)
