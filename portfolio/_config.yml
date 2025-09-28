@@ -1,0 +1,71 @@
+# 1. Files excluded from Jekyll builds
+exclude:
+  - README.md
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - screenshot.png
+  - LICENSE
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - garth-jekyll-theme.gemspec
+
+# 2. Installed Gems
+plugins:
+  - jekyll-paginate
+
+# 3. Gem settings
+paginate: 2
+paginate_path: page:num
+
+# 4. Jekyll settings
+sass:
+  style: compressed
+permalink: pretty
+excerpt_separator: <!-- more -->
+timezone: Asia/Kolkata  # Change to your timezone
+
+# 5. Collections
+collections:
+  posts:
+    title: Blog
+    output: true
+    description: "Technical posts and tutorials on AI, Data Science & Backend Engineering"
+
+# 6. Jekyll collections settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# 7. Site settings
+encoding: utf-8
+title: "Shantanu Sharma" 
+logo: "/assets/logo.svg" 
+description: "Data Scientist & Backend Engineer | AI, LLMs, ETL & Scalable Systems"
+url: "https://mathoholic.com" 
+baseurl: ""
+lang: en-GB
+
+# ✅ Navigation Menu
+navigation:
+  - title: "About Me"
+    url: "/about"
+  - title: "Blog"
+    url: "https://mathoholic.dev"
+    external: true
+  # - title: "Projects"
+  #   url: "/projects"
+  # - title: "Contact"
+  #   url: "/contact"
+  # - title: "Home"
+  #   url: "/"
