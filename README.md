@@ -15,14 +15,15 @@ Building production-grade AI/ETL systems, scalable APIs, and LLM-driven applicat
 
 ---
 
-## 🏗 Featured Projects  
-> (Pin these repos on your profile — otherwise your README is just fluff.)  
+## 🏗 Featured Projects   
 
 - [🚦 **RAG Service (FastAPI + Vector DBs)**](#)  
-  Retrieval-Augmented Generation with low-latency search and contextual responses.  
+  Retrieval-Augmented Generation with low-latency search and contextual responses.
+  
+  
+- [📡 **Distributed Backend Services (Go + RabbitMQ)**](#)  
+  Building resilient backend systems: webhook ingestion, async job processing, and inter-service communication.
 
-- [📡 **WhatsApp Webhook Handler (Go + RabbitMQ)**](#)  
-  Async microservice for Meta webhook events, production-grade messaging.  
 
 - [📊 **BI Dashboards Portfolio**](https://public.tableau.com/app/profile/mathoholiclite/vizzes)  
   Power BI & Tableau dashboards for analytics storytelling.  
@@ -58,11 +59,11 @@ Building production-grade AI/ETL systems, scalable APIs, and LLM-driven applicat
 ---
 
 ## 📜 Certifications  
-[Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60) •  
-[Power BI](https://www.udemy.com/certificate/UC-44e6e979-0288-461b-a7aa-eb28afe93ff0/) •  
-[Tableau](https://coursera.org/share/47754a838923295e841e3b772d74c8fc) •  
-[SQL](https://www.udemy.com/certificate/UC-b716f3ea-af2b-48af-bdb7-e93a15359700/) •  
-[Excel](https://www.coursera.org/account/accomplishments/verify/836TMNM5DYFS?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course) •  
+[Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60)
+[Power BI](https://www.udemy.com/certificate/UC-44e6e979-0288-461b-a7aa-eb28afe93ff0/)
+[Tableau](https://coursera.org/share/47754a838923295e841e3b772d74c8fc)
+[SQL](https://www.udemy.com/certificate/UC-b716f3ea-af2b-48af-bdb7-e93a15359700/)  
+[Excel](https://www.coursera.org/account/accomplishments/verify/836TMNM5DYFS?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)
 [DBT](https://www.linkedin.com/learning/certificates/6e70788ea26944ad1dc2490eae80ac6239486fc89431b8e8d96629f4aaa9dfe9?trk=share_certificate)  
 
 ---
