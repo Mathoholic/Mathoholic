@@ -6,18 +6,20 @@ layout: default
 
 <main class="main  container">
 
-	<div class="content">
+    <div class="content">
 
     <article class="article  article--page  typeset">
 
-			{% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
-			<h1>{{ collectiondata.title }}</h1>
-
-			{{ collectiondata.description | markdownify }}
+            {% assign about_page = site.pages | where: "name", "about.md" | first %}
+            {% if about_page %}
+                <h1>{{ about_page.title | default: "About Me" }}</h1>
+                {{ about_page.content }}
+            {% else %}
+                <h1>About Me</h1>
+                <p>Welcome to my site! I'm Shantanu Sharma, a Data Scientist & Backend Engineer specializing in AI, LLMs, ETL & Scalable Systems.</p>
+            {% endif %}
 
     </article>
-
-    {% include post-list.html %}
 
   </div>
 
