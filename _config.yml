@@ -59,7 +59,7 @@ lang: en-GB
 # ✅ Navigation Menu
 navigation:
   - title: "About Me"
-    url: "/about"
+    url: "/"
   - title: "Blog"
     url: "https://mathoholic.dev"
     external: true
