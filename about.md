@@ -1,5 +1,6 @@
 ---
 title: About Me
+layout: home
 ---
 
 Hi! I'm **Shantanu**, a Data Scientist and Software Engineer based in India. I'm passionate about building scalable backend systems, working with AI/ML models, and exploring modern web technologies. I love solving complex problems using **Mathematics, Data Science, and Backend Engineering**. 
