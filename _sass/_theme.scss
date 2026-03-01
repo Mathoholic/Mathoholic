@@ -4,8 +4,8 @@
 @use 'sass:map';
 
 body {
-  background: $backgroundColour;
-  color: $bodyColour;
+  background: var(--bg);
+  color: var(--color-body);
   height: 100%;
   display: flex;
   @include flex-direction(column);
@@ -45,7 +45,7 @@ body {
 
 
 .header {
-  background: color.adjust($backgroundColour, $lightness: -10%);
+  background: var(--bg-header);
   .container {
     display: flex;
     flex-direction: column;
@@ -85,21 +85,24 @@ body {
 
 .small {
   padding-top: .6rem;
-  color: $captionColour;
+  color: var(--color-caption);
   display: inline-block;
 }
 
 .footer {
-  border-top: 1px solid color.adjust($backgroundColour, $lightness: -15%);
+  border-top: 1px solid var(--bg-footer-border);
 }
 
 
 // Nav and copyright
 .nav {
+  display: flex;
+  align-items: center;
+
   &--paginator {
     @include flexbox;
     @include justify-content(center);
-    color: $captionColour;
+    color: var(--color-caption);
     text-align: center;
   }
 }
@@ -144,7 +147,7 @@ body {
   }
   &--current {
     a {
-      color: color.adjust($linkColour, $saturation: -100%);
+      color: var(--color-nav-current);
     }
   }
 }
@@ -164,8 +167,8 @@ video {
 
 // Text selection
 ::selection {
-  background: $headingColour;
-  color: $white;
+  background: var(--color-selection-bg);
+  color: var(--color-selection-fg);
   text-shadow: none;
 }
 
@@ -179,12 +182,12 @@ video {
   button {
     background-image: none;
     text-shadow: none;
-    color: $backgroundColour;
+    color: var(--bg);
     &:hover,
     &:active,
     &:focus {
       background-image: none;
-      color: $backgroundColour;
+      color: var(--bg);
     }
   }
   hr {
@@ -206,4 +209,32 @@ video {
     white-space: pre;
     overflow-x: scroll;
   }
+}
+
+// Dark mode toggle button
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-caption);
+  border-radius: 2rem;
+  color: var(--color-body);
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-left: 1rem;
+  padding: 0.3rem 0.7rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  vertical-align: middle;
+
+  &:hover {
+    background: var(--color-caption);
+    color: var(--bg);
+  }
+
+  .theme-toggle__sun { display: none; }
+  .theme-toggle__moon { display: inline; }
+}
+
+[data-theme="dark"] .theme-toggle {
+  .theme-toggle__sun { display: inline; }
+  .theme-toggle__moon { display: none; }
 }

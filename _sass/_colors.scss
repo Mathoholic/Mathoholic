@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Colours
 // $bodyColour: #46412A;
 // $headingColour: darken($bodyColour, 5%);
@@ -18,4 +20,43 @@ $hoverColour: #000000;       // black
 $captionColour: #A0AEC0;     // light gray
 $backgroundColour: #FFFFFF;   // white
 $codeBackgroundColour: #F8F9FA;
+$white: #FFFFFF;
+
+// CSS Custom Properties — runtime theming
+// (:root = light mode, [data-theme="dark"] = dark mode)
+:root {
+  --bg:                     #{$backgroundColour};
+  --bg-header:              #{color.adjust($backgroundColour, $lightness: -10%)};
+  --bg-footer-border:       #{color.adjust($backgroundColour, $lightness: -15%)};
+  --bg-code:                #{$codeBackgroundColour};
+  --color-body:             #{$bodyColour};
+  --color-heading:          #{$headingColour};
+  --color-link:             #{$linkColour};
+  --color-link-underline:   #{color.adjust($linkColour, $lightness: 20%)};
+  --color-hover:            #{$hoverColour};
+  --color-hover-underline:  #{color.adjust($hoverColour, $lightness: 20%)};
+  --color-caption:          #{$captionColour};
+  --color-selection-bg:     #{$headingColour};
+  --color-selection-fg:     #ffffff;
+  --color-nav-current:      #{color.adjust($linkColour, $saturation: -100%)};
+  --text-shadow-bg:         #{$backgroundColour};
+}
+
+[data-theme="dark"] {
+  --bg:                     #1A202C;
+  --bg-header:              #141921;
+  --bg-footer-border:       #2D3748;
+  --bg-code:                #2D3748;
+  --color-body:             #CBD5E0;
+  --color-heading:          #F7FAFC;
+  --color-link:             #90CDF4;
+  --color-link-underline:   #63B3ED;
+  --color-hover:            #BEE3F8;
+  --color-hover-underline:  #90CDF4;
+  --color-caption:          #718096;
+  --color-selection-bg:     #4A5568;
+  --color-selection-fg:     #F7FAFC;
+  --color-nav-current:      #718096;
+  --text-shadow-bg:         #1A202C;
+}
 
