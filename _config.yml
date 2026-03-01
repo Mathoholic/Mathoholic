@@ -22,6 +22,8 @@ paginate_path: "/blog/page:num/"
 # 4. Jekyll settings
 sass:
   style: compressed
+  silence_deprecations:
+    - import
 permalink: pretty
 excerpt_separator: <!-- more -->
 timezone: Asia/Kolkata  # Change to your timezone

@@ -1,4 +1,8 @@
 // Structural elements
+
+@use 'sass:color';
+@use 'sass:map';
+
 body {
   background: $backgroundColour;
   color: $bodyColour;
@@ -41,7 +45,7 @@ body {
 
 
 .header {
-  background: darken($backgroundColour, 10%);
+  background: color.adjust($backgroundColour, $lightness: -10%);
   .container {
     display: flex;
     flex-direction: column;
@@ -86,7 +90,7 @@ body {
 }
 
 .footer {
-  border-top: 1px solid darken($backgroundColour, 15%);
+  border-top: 1px solid color.adjust($backgroundColour, $lightness: -15%);
 }
 
 
@@ -140,7 +144,7 @@ body {
   }
   &--current {
     a {
-      color: desaturate($linkColour, 100%);
+      color: color.adjust($linkColour, $saturation: -100%);
     }
   }
 }

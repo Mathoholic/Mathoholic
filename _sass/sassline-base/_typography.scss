@@ -1,6 +1,12 @@
 // Typography
 // ---------------------------------------
 
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+
 // Setting root sizes and base styles.
 html {
   @include rootsize;
@@ -13,9 +19,9 @@ html {
 body {
   @include fontsize(zeta, all);
 
-  font-family: unquote(map-get($bodytype, font-family));
+  font-family: string.unquote(map.get($bodytype, font-family));
   font-style: normal;
-  font-weight: map-get($bodytype, regular);
+  font-weight: map.get($bodytype, regular);
   line-height: 2rem;
 }
 
@@ -36,7 +42,7 @@ a {
 
   // Nice underlines for text links.
   p a, li a {
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($linkColour,20%) 50%);
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,color.adjust($linkColour, $lightness: 20%) 50%);
     background-position: 0 93%;
     background-repeat: repeat-x;
     background-size: 100% 0.15rem;
@@ -46,7 +52,7 @@ a {
                 -0.15rem 0 $backgroundColour;
 
     &:hover, &:active, &:focus {
-      background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($hoverColour,20%) 50%);
+      background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,color.adjust($hoverColour, $lightness: 20%) 50%);
     }
   }
 
@@ -60,10 +66,10 @@ a {
   // Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
   h1, h2, h3, h4, h5, h6 {
     color: $headingColour;
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: string.unquote(map.get($headingtype, font-family));
     font-feature-settings: 'dlig', 'liga', 'lnum', 'kern';
     font-style: normal;
-    font-weight: map-get($headingtype, bold);
+    font-weight: map.get($headingtype, bold);
   }
 
   // Heading level 1.
@@ -201,7 +207,7 @@ a {
     }
 
     dt {
-      font-weight: map-get($bodytype, bold);
+      font-weight: map.get($bodytype, bold);
     }
 
     dd + dt {
@@ -213,10 +219,10 @@ a {
   table {
     @include sassline(eta, $headingtype, 2, 0, all);
 
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: string.unquote(map.get($headingtype, font-family));
     font-feature-settings: 'liga', 'lnum', 'tnum', 'kern';
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map.get($headingtype, regular);
     width: 100%;
 
     thead {
@@ -230,21 +236,21 @@ a {
 
   // Bold.
   b, strong, .bold {
-    font-weight: map-get($bodytype, bold);
+    font-weight: map.get($bodytype, bold);
   }
 
   // Italic.
   em, i, .italic {
-    font-style: map-get($bodytype, italic);
+    font-style: map.get($bodytype, italic);
   }
 
   // Caption and inline small text.
   small, .caption {
     @include fontsize(theta, all);
 
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: string.unquote(map.get($headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map.get($headingtype, regular);
   }
 
   small {
@@ -271,27 +277,27 @@ a {
 
     p {
       border-left: 0.15rem solid $linkColour;
-      font-style: map-get($bodytype, italic);
+      font-style: map.get($bodytype, italic);
       padding-left: 1rem;
 
       // Add spacing below blockquote paragraphs to align to baseline grid.
-      $get-scale: map-get($modular-scale, scale-0);
-      $get-size: map-get($get-scale, zeta);
-      $rootsize: nth($sizes, 1);
-      $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
-      $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+      $get-scale: map.get($modular-scale, scale-0);
+      $get-size: map.get($get-scale, zeta);
+      $rootsize: list.nth($sizes, 1);
+      $baseline-shift: #{math.div(math.div($get-size, 2) * (math.div(2 * $rootsize, $get-size) - map.get($bodytype, cap-height)), $rootsize) + 0.00001};
+      $baseline-push: #{3 - (math.div($get-size * (math.div(2 * $rootsize, $get-size) - map.get($bodytype, cap-height)), $rootsize) + 0.00001)};
 
       margin-bottom: #{$baseline-push}rem;
       padding-bottom: #{$baseline-shift}rem;
 
       @for $i from 2 through $breakpoints-limit {
-        $get-scale: map-get($modular-scale, scale-#{$i - 1});
-        $get-size: map-get($get-scale, zeta);
-        $rootsize: nth($sizes, $i);
-        $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
-        $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+        $get-scale: map.get($modular-scale, scale-#{$i - 1});
+        $get-size: map.get($get-scale, zeta);
+        $rootsize: list.nth($sizes, $i);
+        $baseline-shift: #{math.div(math.div($get-size, 2) * (math.div(2 * $rootsize, $get-size) - map.get($bodytype, cap-height)), $rootsize) + 0.00001};
+        $baseline-push: #{3 - (math.div($get-size * (math.div(2 * $rootsize, $get-size) - map.get($bodytype, cap-height)), $rootsize) + 0.00001)};
 
-        @media screen and (min-width: nth($points, $i) / 16 * 1em ) {
+        @media screen and (min-width: #{math.div(list.nth($points, $i), 16) * 1em} ) {
           margin-bottom: #{$baseline-push}rem;
           padding-bottom: #{$baseline-shift}rem;
         }
@@ -318,7 +324,7 @@ a {
   // Code block.
   code, pre {
     background-color: $codeBackgroundColour;
-    font-family: unquote(map-get($monospacetype, font-family));
+    font-family: string.unquote(map.get($monospacetype, font-family));
   }
 
   pre {

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
 	<head>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		{% if page.collectionpage %}
 			{% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
 			<title>{{ collectiondata.title }} - {{ site.title }}</title>
@@ -10,6 +12,35 @@
 		{% else %}
 			<title>{{ site.title }}</title>
 		{% endif %}
+
+		<!-- SEO: Description -->
+		{% if page.description %}
+			<meta name="description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}">
+		{% elsif site.description %}
+			<meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}">
+		{% endif %}
+
+		<!-- SEO: Canonical URL -->
+		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+		<meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+		<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
+		<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+		{% if site.logo %}
+			<meta property="og:image" content="{{ site.logo | prepend: site.url }}">
+		{% endif %}
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+		<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
+
+		<!-- Google Fonts: preconnect for faster loading -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400i,700|Neuton:400,700" rel="stylesheet">
 
 		<link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
 
@@ -24,6 +55,5 @@
 
 		{{ content }}
 
-		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400i,700|Neuton:400,700" rel="stylesheet">
 	</body>
 </html>
