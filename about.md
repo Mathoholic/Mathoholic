@@ -44,6 +44,7 @@ I'm open to **collaborations, freelance projects, and mentoring**. Feel free to 
 
 - [LinkedIn](https://www.linkedin.com/in/mathoholic/)
 - [GitHub](https://github.com/Mathoholic)
+- [RebuildHQ](https://rebuildhq.in) — my personal discipline & reset journal
 - [Schedule a session on Topmate](https://topmate.io/shantanusharma)
 - [Email me](mailto:your.kshantanu68@gmail.com)
 
