@@ -211,6 +211,34 @@ video {
   }
 }
 
+// Social icons
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-body);
+    background-image: none !important;
+    text-shadow: none !important;
+    transition: color 0.2s, transform 0.2s;
+
+    &:hover, &:focus {
+      color: var(--color-link);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__svg {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+  }
+}
+
 // Dark mode toggle button
 .theme-toggle {
   background: none;

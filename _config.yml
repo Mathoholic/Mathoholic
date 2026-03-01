@@ -50,6 +50,13 @@ defaults:
     values:
       layout: post
 
+# 8. Social handles (leave blank to hide)
+social:
+  facebook: "mathoholicbuilds"
+  threads: "mathoholic.build.logs"
+  linkedin: "mathoholic"
+  instagram: "mathoholic.build.logs"
+
 # 7. Site settings
 encoding: utf-8
 title: "Shantanu Sharma" 
