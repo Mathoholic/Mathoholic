@@ -1,9 +1,9 @@
 ---
 title: About Me
-layout: home
+layout: page
 ---
 
-Hi! I'm **Shantanu**, a Data Scientist and Software Engineer from India. I specialize in building scalable backend systems, designing AI/ML solutions, and leveraging modern web technologies. My passion lies in solving challenging problems at the intersection of **Mathematics, Data Science, and Software Engineering**. *[Know More ...](/resume/output/Shantanu_Sharma_Resume.pdf){:target="_blank" title="Shantanu Sharma Resume (PDF)"}*
+Hi! I'm **Shantanu**, a Data Scientist and Software Engineer from India. I specialize in building scalable backend systems, designing AI/ML solutions, and leveraging modern web technologies. My passion lies in solving challenging problems at the intersection of **Mathematics, Data Science, and Software Engineering**.
 
 
 

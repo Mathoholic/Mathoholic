@@ -1,14 +1,13 @@
 {% if paginator.posts %}
 
   <ul class="list  list--posts">
-    {% for page in paginator.posts %}
+    {% for post in paginator.posts %}
       <li class="item  item--post">
-        <article class="article  article--post  typeset">
-
-          <h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
-          {% include post-meta.html %}
-          {{ page.excerpt | markdownify | truncatewords: 60 }}
-
+        <article class="article  article--listing">
+          <h2 class="listing-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          {% include post-meta.html post=post %}
+          <p class="listing-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="listing-read-more">Read article &rarr;</a>
         </article>
       </li>
     {% endfor %}
@@ -18,14 +17,13 @@
 {% else %}
 
   <ul class="list  list--posts">
-    {% for page in site.posts %}
+    {% for post in site.posts %}
       <li class="item  item--post">
-        <article class="article  article--post  typeset">
-
-          <h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
-          {% include post-meta.html %}
-          {{ page.excerpt | markdownify | truncatewords: 60 }}
-
+        <article class="article  article--listing">
+          <h2 class="listing-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          {% include post-meta.html post=post %}
+          <p class="listing-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="listing-read-more">Read article &rarr;</a>
         </article>
       </li>
     {% endfor %}

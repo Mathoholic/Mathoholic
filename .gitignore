@@ -2,8 +2,6 @@ _site/
 .sass-cache/
 .jekyll-metadata
 garth-jekyll-theme-*.gem
-Gemfile.lock
-**/Gemfile.lock
 
 # Resume generation temporary files
 temp-resume.html

@@ -6,16 +6,15 @@ layout: default
 
 <main class="main  container">
 
-    <div class="content">
+  <div class="blog-page  typeset">
 
-    <article class="article  article--page  typeset">
-
-            {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
-            <h1>{{ collectiondata.title }}</h1>
-
-            {{ collectiondata.description | markdownify }}
-
-    </article>
+    <header class="page-header">
+      {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+      <h1>{{ collectiondata.title }}</h1>
+      {% if collectiondata.description %}
+        <p class="page-header__desc">{{ collectiondata.description }}</p>
+      {% endif %}
+    </header>
 
     {% include post-list.html %}
 

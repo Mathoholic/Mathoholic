@@ -12,11 +12,11 @@
 // $codeBackgroundColour: darken($backgroundColour, 5%);
 
 
-// Monochrome Elite Theme
+// Monochrome Elite Theme — link colour tuned for WCAG AA and clear affordance
 $bodyColour: #4A5568;        // medium gray
 $headingColour: #2D3748;     // darker gray
-$linkColour: #1A202C;        // dark gray (subtle)
-$hoverColour: #000000;       // black
+$linkColour: #1D4ED8;        // distinct blue-gray (WCAG AA on white)
+$hoverColour: #1E40AF;       // darker on hover
 $captionColour: #A0AEC0;     // light gray
 $backgroundColour: #FFFFFF;   // white
 $codeBackgroundColour: #F8F9FA;
