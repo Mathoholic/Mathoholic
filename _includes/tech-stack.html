@@ -1,0 +1,41 @@
+{% assign tech = site.data.tech_stack %}
+{% if tech and tech.items.size > 0 %}
+<section class="tech-stack" aria-label="Technologies I work with">
+  <h2 class="tech-stack__title">Tech stack</h2>
+  <div class="tech-stack__row">
+    <div class="tech-stack__filters">
+      {% for cat in tech.categories %}
+      <button type="button" class="tech-stack__filter" data-category="{{ cat.id }}" aria-pressed="{% if cat.id == 'all' %}true{% else %}false{% endif %}">
+        {{ cat.label }}
+      </button>
+      {% endfor %}
+    </div>
+    <div class="tech-stack__pills">
+      {% for item in tech.items %}
+      <span class="tech-stack__pill" data-category="{{ item.category }}">
+        <img class="tech-stack__icon" src="https://cdn.simpleicons.org/{{ item.icon }}" alt="" width="14" height="14" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <span class="tech-stack__fallback" style="display:none">{{ item.name | slice: 0 }}</span>
+        <span class="tech-stack__name">{{ item.name }}</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<script>
+(function() {
+  var grid = document.querySelector('.tech-stack__pills');
+  var filters = document.querySelectorAll('.tech-stack__filter');
+  if (!grid || !filters.length) return;
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var cat = this.getAttribute('data-category');
+      filters.forEach(function(b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); b.classList.toggle('is-active', b === btn); });
+      grid.querySelectorAll('.tech-stack__pill').forEach(function(el) {
+        el.style.display = (cat === 'all' || el.getAttribute('data-category') === cat) ? '' : 'none';
+      });
+    });
+  });
+  document.querySelector('.tech-stack__filter[data-category="all"]')?.classList.add('is-active');
+})();
+</script>
+{% endif %}

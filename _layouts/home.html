@@ -6,13 +6,17 @@ layout: default
 
 <main class="main  container">
 
-  <section class="hero  typeset">
-    <h1>Hi, I'm Shantanu 👋</h1>
-    <p class="lead">{{ site.description }}</p>
-    <nav class="hero__nav">
-      <a href="https://linkedin.com/in/mathoholic" target="_blank" rel="noopener">LinkedIn</a>
-    </nav>
-  </section>
+  <div class="main__left">
+    <section class="hero  typeset">
+      <h1>Hi, I'm Shantanu 👋</h1>
+      <p class="lead">{{ site.description }}</p>
+      <nav class="hero__nav">
+        <a href="https://linkedin.com/in/mathoholic" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </section>
+
+    {% include tech-stack.html %}
+  </div>
 
   <section class="recent-posts  typeset">
     <h2>Recent Posts</h2>
