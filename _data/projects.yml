@@ -1,4 +1,70 @@
-# Featured projects — used by /projects page
+# Featured projects — used by /projects page and My Plate
+- title: "Worker pool system"
+  description: "Concurrent worker pool implementation in Go."
+  stack: ["Go", "Concurrency"]
+  link: "#"
+  role: "Systems programming"
+
+- title: "Concurrent job processor"
+  description: "Job queue with concurrent workers."
+  stack: ["Go", "Channels", "Goroutines"]
+  link: "#"
+  role: "Concurrency"
+
+- title: "Production API service"
+  description: "High-performance HTTP API service."
+  stack: ["Go", "HTTP", "API"]
+  link: "#"
+  role: "Backend engineering"
+
+- title: "Cache library"
+  description: "In-memory caching library."
+  stack: ["Go", "Caching"]
+  link: "#"
+  role: "Backend engineering"
+
+- title: "Redis integration"
+  description: "Redis client and caching layer."
+  stack: ["Go", "Redis", "Caching"]
+  link: "#"
+  role: "Backend engineering"
+
+- title: "Event processing system"
+  description: "Event-driven message processing."
+  stack: ["Go", "Message queues", "Events"]
+  link: "#"
+  role: "Distributed systems"
+
+- title: "Notification service"
+  description: "Async notification delivery service."
+  stack: ["Go", "RabbitMQ", "Notifications"]
+  link: "#"
+  role: "Distributed systems"
+
+- title: "Rate limiter service"
+  description: "Distributed rate limiting."
+  stack: ["Go", "Redis", "Rate limiting"]
+  link: "#"
+  role: "Distributed systems"
+
+- title: "Feed system"
+  description: "Real-time feed aggregation."
+  stack: ["Go", "Events", "Distributed"]
+  link: "#"
+  role: "Distributed systems"
+
+- title: "AI agent system"
+  description: "LLM-powered agent orchestration."
+  stack: ["Python", "LLMs", "Agents"]
+  link: "#"
+  role: "AI infrastructure"
+
+- title: "AI support platform"
+  description: "AI-powered support and automation."
+  stack: ["Python", "RAG", "LLMs"]
+  link: "#"
+  role: "AI infrastructure"
+
 - title: "RAG Service (FastAPI + Vector DBs)"
   description: "Retrieval-Augmented Generation with low-latency search and contextual responses."
   stack: ["Python", "FastAPI", "Vector DBs", "LLMs"]

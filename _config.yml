@@ -76,6 +76,8 @@ navigation:
     url: "/blog"
   - title: "Projects"
     url: "/projects"
+  - title: "My Plate"
+    url: "/my-plate"
   - title: "Resume"
     url: "/resume"
   - title: "Contact"

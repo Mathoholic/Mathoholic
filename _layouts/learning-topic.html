@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+{% assign group_id = page.group_id %}
+{% assign topic_id = page.topic_id %}
+{% assign group = site.data.learning.groups | where: "id", group_id | first %}
+{% assign topic = group.topics | where: "id", topic_id | first %}
+
+{% assign total = topic.subtopics | size %}
+{% assign completed = 0 %}
+{% for st in topic.subtopics %}
+  {% if st.status == 'completed' %}{% assign completed = completed | plus: 1 %}{% endif %}
+{% endfor %}
+{% assign pct = 0 %}
+{% if total > 0 %}{% assign pct = completed | times: 100 | divided_by: total %}{% endif %}
+
+<main class="main  container">
+
+  <div class="my-plate-page  my-plate-detail  typeset">
+
+    <nav class="my-plate__back">
+      <a href="{{ site.baseurl }}/my-plate/">← Back to my plate</a>
+    </nav>
+
+    <header class="page-header">
+      <p class="page-header__group">{{ group.label }}</p>
+      <h1>{{ topic.title }}</h1>
+      <div class="page-header__meta">
+        <span class="my-plate__topic-progress" data-pct="{{ pct }}" title="{{ completed }}/{{ total }} completed">
+          <span class="my-plate__progress-track">
+            <span class="my-plate__progress-bar" style="width: {{ pct }}%"></span>
+          </span>
+          <span class="my-plate__progress-text">{{ completed }}/{{ total }} done</span>
+        </span>
+        {% if topic.link %}
+          <a href="{{ topic.link }}" target="_blank" rel="noopener" class="my-plate__resource-link">Resources I'm using →</a>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if topic.description %}
+      <p class="my-plate__topic-desc  my-plate-detail__desc">{{ topic.description }}</p>
+    {% endif %}
+
+    <h2 class="my-plate-detail__subtopics-title">What I'm learning</h2>
+    <ul class="my-plate__subtopic-list  my-plate-detail__subtopic-list">
+      {% for subtopic in topic.subtopics %}
+        <li class="my-plate__subtopic-card" data-status="{{ subtopic.status }}">
+          <div class="my-plate__subtopic-header">
+            <span class="label  label--status  label--status-{{ subtopic.status }}">{{ subtopic.status | replace: '_', ' ' }}</span>
+            <span class="my-plate__subtopic-title">{{ subtopic.title }}</span>
+          </div>
+          <div class="my-plate__subtopic-links">
+            {% if subtopic.projects.size > 0 %}
+              <div class="my-plate__link-group">
+                <span class="my-plate__link-label">What I've built</span>
+                {% for proj_title in subtopic.projects %}
+                  {% assign proj = site.data.projects | where: "title", proj_title | first %}
+                  {% if proj %}
+                    <a href="{{ proj.link | default: '/projects' }}" {% if proj.external %}target="_blank" rel="noopener"{% endif %}>{{ proj.title }}</a>
+                  {% else %}
+                    <span class="my-plate__link-chip">{{ proj_title }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if subtopic.posts.size > 0 %}
+              <div class="my-plate__link-group">
+                <span class="my-plate__link-label">What I've written</span>
+                {% for post in subtopic.posts %}
+                  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+</main>
+
+{% include site-footer.html %}

@@ -1,0 +1,206 @@
+# My Plate — 5 Skill Groups
+# status: completed | in_progress | planned
+
+groups:
+  - id: concurrency
+    label: "Programming & Concurrency"
+    topics:
+      - id: concurrency-foundations
+        title: "Programming & Concurrency Foundations"
+        description: "I'm building my foundation here — how well I control the language and runtime. Most engineers write Go; I want to actually understand concurrency. Everything I build above this depends on getting this right."
+        link: "#"
+        subtopics:
+          - title: "Go language fundamentals"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Goroutines"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Channels"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Worker pools"
+            status: planned
+            projects: ["Worker pool system", "Concurrent job processor"]
+            posts: []
+          - title: "Mutex / sync primitives"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Context propagation"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Error handling"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Memory management basics"
+            status: planned
+            projects: []
+            posts: []
+
+  - id: backend-infra
+    label: "Backend Infrastructure"
+    topics:
+      - id: backend-infrastructure
+        title: "Backend Infrastructure Engineering"
+        description: "I'm learning to build services that can handle thousands of requests per second — HTTP architecture, middleware, caching, and the patterns that make backends production-ready."
+        link: "#"
+        subtopics:
+          - title: "HTTP server architecture"
+            status: planned
+            projects: ["Production API service"]
+            posts: []
+          - title: "Middleware"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Authentication"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Rate limiting"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Request tracing"
+            status: planned
+            projects: []
+            posts: []
+          - title: "API design"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Connection pools"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Caching"
+            status: planned
+            projects: ["Cache library", "Redis integration"]
+            posts: []
+
+  - id: distributed
+    label: "Distributed Systems"
+    topics:
+      - id: distributed-systems
+        title: "Distributed Systems"
+        description: "I'm moving beyond single-service thinking. Message queues, event-driven design, idempotency — this is how large systems actually work. It's the layer I'm pushing myself to reach."
+        link: "#"
+        subtopics:
+          - title: "Message queues"
+            status: planned
+            projects: ["Event processing system"]
+            posts: []
+          - title: "Event-driven systems"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Retries"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Dead letter queues"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Idempotency"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Rate limiting at scale"
+            status: planned
+            projects: ["Rate limiter service"]
+            posts: []
+          - title: "Service communication"
+            status: planned
+            projects: ["Notification service", "Feed system"]
+            posts: []
+
+  - id: observability
+    label: "Observability & Production"
+    topics:
+      - id: observability-production
+        title: "Observability & Production Engineering"
+        description: "I'm learning to turn code into real production systems — logging, metrics, tracing. My goal: services I can actually operate and debug when things go wrong."
+        link: "#"
+        subtopics:
+          - title: "Logging"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Metrics"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Monitoring"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Tracing"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Debugging distributed systems"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Performance analysis"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Prometheus"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Grafana"
+            status: planned
+            projects: []
+            posts: []
+          - title: "OpenTelemetry"
+            status: planned
+            projects: []
+            posts: []
+
+  - id: ai-infra
+    label: "AI Infrastructure"
+    topics:
+      - id: ai-infrastructure
+        title: "AI Infrastructure"
+        description: "This is where my backend experience becomes a weapon. RAG, embeddings, agent orchestration — I'm combining AI with systems engineering. It's a niche I'm betting on."
+        link: "#"
+        subtopics:
+          - title: "Embeddings"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Vector databases"
+            status: planned
+            projects: ["RAG Service (FastAPI + Vector DBs)"]
+            posts: []
+          - title: "Retrieval systems"
+            status: planned
+            projects: []
+            posts: []
+          - title: "RAG pipelines"
+            status: planned
+            projects: ["RAG Service (FastAPI + Vector DBs)"]
+            posts:
+              - title: "Beginner's Guide to Machine Learning"
+                url: "/2024/06/22/machine-learning-01/"
+          - title: "LLM APIs"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Streaming responses"
+            status: planned
+            projects: []
+            posts: []
+          - title: "Agent orchestration"
+            status: planned
+            projects: ["AI agent system", "AI support platform"]
+            posts: []

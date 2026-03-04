@@ -1,0 +1,95 @@
+---
+layout: default
+title: My Plate
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+
+  <div class="my-plate-page  typeset">
+
+    <header class="page-header">
+      <h1>My Plate</h1>
+      <p class="page-header__desc">My learning journey — what I'm exploring, building, and writing about.</p>
+    </header>
+
+    <div class="my-plate__tabs" role="tablist" aria-label="Filter by group">
+      <button type="button" class="my-plate__tab  is-active" role="tab" aria-selected="true" aria-controls="panel-all" id="tab-all" data-group="all">All</button>
+      {% for group in site.data.learning.groups %}
+        <button type="button" class="my-plate__tab" role="tab" aria-selected="false" aria-controls="panel-{{ group.id }}" id="tab-{{ group.id }}" data-group="{{ group.id }}">{{ group.label }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="my-plate__groups">
+      {% for group in site.data.learning.groups %}
+        <section class="my-plate__group" id="panel-{{ group.id }}" data-group="{{ group.id }}" role="tabpanel" aria-labelledby="tab-{{ group.id }}">
+          <div class="my-plate__topic-grid">
+            {% for topic in group.topics %}
+              {% assign total = topic.subtopics | size %}
+              {% assign completed = 0 %}
+              {% for st in topic.subtopics %}
+                {% if st.status == 'completed' %}{% assign completed = completed | plus: 1 %}{% endif %}
+              {% endfor %}
+              {% assign pct = 0 %}
+              {% if total > 0 %}{% assign pct = completed | times: 100 | divided_by: total %}{% endif %}
+              <a href="{{ site.baseurl }}/my-plate/{{ topic.id }}/" class="my-plate__topic-card" data-topic-id="{{ topic.id }}">
+                <div class="my-plate__topic-card-inner">
+                  <header class="my-plate__topic-header">
+                    <h3 class="my-plate__topic-title">{{ topic.title }}</h3>
+                    <span class="my-plate__topic-progress" data-pct="{{ pct }}" title="{{ completed }}/{{ total }} completed">
+                      <span class="my-plate__progress-track">
+                        <span class="my-plate__progress-bar" style="width: {{ pct }}%"></span>
+                      </span>
+                      <span class="my-plate__progress-text">{{ completed }}/{{ total }}</span>
+                    </span>
+                  </header>
+                  {% if topic.description %}
+                    <p class="my-plate__topic-desc">{{ topic.description }}</p>
+                  {% endif %}
+                  <div class="my-plate__topic-footer">
+                    <span class="my-plate__topic-meta">{{ total }} topics in my roadmap</span>
+                    <span class="my-plate__topic-cta">See my journey →</span>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</main>
+
+{% include site-footer.html %}
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.my-plate__tab');
+  var groups = document.querySelectorAll('.my-plate__group');
+  if (!tabs.length || !groups.length) return;
+
+  function showGroup(groupId) {
+    groups.forEach(function(panel) {
+      var match = groupId === 'all' || panel.getAttribute('data-group') === groupId;
+      panel.hidden = !match;
+    });
+    tabs.forEach(function(btn) {
+      var active = btn.getAttribute('data-group') === groupId;
+      btn.setAttribute('aria-selected', active);
+      btn.classList.toggle('is-active', active);
+    });
+  }
+
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showGroup(this.getAttribute('data-group'));
+    });
+  });
+
+  // Show "All" by default (all panels visible)
+  showGroup('all');
+})();
+</script>
