@@ -13,7 +13,7 @@
     <div class="tech-stack__pills">
       {% for item in tech.items %}
       <span class="tech-stack__pill" data-category="{{ item.category }}">
-        <img class="tech-stack__icon" src="https://cdn.simpleicons.org/{{ item.icon }}" alt="" width="14" height="14" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <img class="tech-stack__icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/{{ item.icon }}.svg" alt="" width="14" height="14" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
         <span class="tech-stack__fallback" style="display:none">{{ item.name | slice: 0 }}</span>
         <span class="tech-stack__name">{{ item.name }}</span>
       </span>
