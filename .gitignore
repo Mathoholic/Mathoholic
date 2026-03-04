@@ -6,3 +6,6 @@ garth-jekyll-theme-*.gem
 # Resume generation temporary files
 temp-resume.html
 *.tmp
+
+# Docs (maintenance, planning)
+docs/
