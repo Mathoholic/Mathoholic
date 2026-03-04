@@ -1,0 +1,25 @@
+# Featured projects — used by /projects page
+- title: "RAG Service (FastAPI + Vector DBs)"
+  description: "Retrieval-Augmented Generation with low-latency search and contextual responses."
+  stack: ["Python", "FastAPI", "Vector DBs", "LLMs"]
+  link: "#"
+  role: "Backend & RAG pipeline design"
+
+- title: "Distributed Backend Services (Go + RabbitMQ)"
+  description: "Resilient backend systems: webhook ingestion, async job processing, inter-service communication."
+  stack: ["Go", "RabbitMQ", "Microservices"]
+  link: "#"
+  role: "Backend engineering"
+
+- title: "BI Dashboards Portfolio"
+  description: "Power BI & Tableau dashboards for analytics storytelling."
+  stack: ["Power BI", "Tableau", "DAX", "SQL"]
+  link: "https://public.tableau.com/app/profile/mathoholiclite/vizzes"
+  external: true
+  role: "Data visualization"
+
+- title: "ETL Microservice (Celery + RabbitMQ)"
+  description: "High-throughput API extraction and transformation pipelines."
+  stack: ["Python", "Celery", "RabbitMQ", "ETL"]
+  link: "#"
+  role: "Data engineering"

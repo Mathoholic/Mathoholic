@@ -117,6 +117,110 @@ body {
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+
+  @include breakpoint(break-1) {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0;
+    width: auto;
+  }
+
+  // Hamburger — visible only below break-1
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--color-caption);
+    border-radius: 4px;
+    color: var(--color-body);
+    cursor: pointer;
+    margin-right: 0.5rem;
+
+    @include breakpoint(break-1) {
+      display: none;
+    }
+  }
+
+  &__toggle-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    span {
+      display: block;
+      width: 1.1rem;
+      height: 2px;
+      background: currentColor;
+      border-radius: 1px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+  }
+
+  // Hamburger open state: icon → X
+  &--open .nav__toggle-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  &--open .nav__toggle-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  &--open .nav__toggle-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  // Nav menu — below break-1: collapse by default, show when open
+  .list--nav {
+    @include breakpoint(0, 639) {
+      display: none;
+      width: 100%;
+      flex-basis: 100%;
+      order: 3;
+      list-style: none;
+      margin: 0.5rem 0 0 0;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--bg-footer-border);
+
+      .item--nav {
+        margin: 0;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--bg-footer-border);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          display: block;
+          padding: 0.35rem 0;
+          min-height: auto;
+        }
+      }
+    }
+
+    @include breakpoint(break-1) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  // When hamburger opens: show nav menu (below 640px only)
+  @include breakpoint(0, 639) {
+    &.nav--open .list--nav {
+      display: flex !important;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  }
 
   &--paginator {
     @include flexbox;
@@ -535,6 +639,86 @@ video {
   &:hover { color: var(--color-hover); }
 }
 
+// ─── Projects page (card-based) ──────────────────────────────────────────────
+.projects-page {
+  width: 100%;
+  max-width: 900px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+
+  @include breakpoint(break-1) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.project-card {
+  background: var(--bg-code);
+  border: 1px solid var(--bg-footer-border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-caption);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  [data-theme="dark"] & {
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.project-card__title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0 0 0.25rem 0;
+
+  a {
+    color: var(--color-heading);
+    background-image: none !important;
+    text-shadow: none !important;
+    transition: color 0.2s ease;
+
+    &:hover, &:focus {
+      color: var(--color-link);
+    }
+  }
+}
+
+.project-card__role {
+  font-size: 0.8rem;
+  color: var(--color-caption);
+  margin: 0 0 0.5rem 0;
+}
+
+.project-card__description {
+  font-size: 0.9rem;
+  color: var(--color-body);
+  line-height: 1.55;
+  margin: 0 0 0.75rem 0;
+}
+
+.project-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+  margin: 0;
+  font-size: 0;
+
+  .label--tag {
+    font-size: 0.68rem;
+    padding: 0.08rem 0.35rem;
+  }
+}
+
 // ─── Post header / body separation ───────────────────────────────────────────
 .post-header {
   padding-bottom: 1rem;
@@ -570,6 +754,32 @@ video {
   border-top: 1px solid var(--bg-footer-border);
 
   a { color: var(--color-link); }
+}
+
+// Related posts (below post body)
+.related-posts-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--bg-footer-border);
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-heading);
+  }
+}
+
+.related-posts {
+  .item--post {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--bg-footer-border);
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  }
 }
 
 // ─── Post meta extras ────────────────────────────────────────────────────────

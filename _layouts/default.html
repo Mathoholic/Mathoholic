@@ -92,6 +92,21 @@
 		      }
 		    });
 		  })();
+		  (function() {
+		    var nav = document.getElementById('site-nav');
+		    var toggle = document.getElementById('nav-toggle');
+		    if (!nav || !toggle) return;
+		    toggle.addEventListener('click', function() {
+		      var open = nav.classList.toggle('nav--open');
+		      toggle.setAttribute('aria-expanded', open);
+		    });
+		    document.addEventListener('click', function(e) {
+		      if (nav.classList.contains('nav--open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+		        nav.classList.remove('nav--open');
+		        toggle.setAttribute('aria-expanded', 'false');
+		      }
+		    });
+		  })();
 		</script>
 
 	</body>

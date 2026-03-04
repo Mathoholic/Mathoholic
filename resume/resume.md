@@ -1,5 +1,7 @@
 ---
 title: "Shantanu Sharma - Resume"
+layout: page
+permalink: /resume/resume/
 ---
 
 # Shantanu Sharma  

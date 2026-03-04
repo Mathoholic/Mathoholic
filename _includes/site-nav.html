@@ -1,5 +1,8 @@
-<nav class="nav">
-  <ul class="list list--nav">
+<nav class="nav" id="site-nav" aria-label="Main navigation">
+  <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+    <span class="nav__toggle-icon"><span></span><span></span><span></span></span>
+  </button>
+  <ul class="list list--nav" id="nav-menu">
     {% for item in site.navigation %}
       <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
         {% if item.external %}
