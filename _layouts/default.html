@@ -93,28 +93,44 @@
 		    });
 		  })();
 		  (function() {
-		    var nav = document.getElementById('site-nav');
-		    var toggle = document.getElementById('nav-toggle');
-		    var backdrop = document.getElementById('nav-backdrop');
-		    if (!nav || !toggle) return;
-		    function closeDrawer() {
-		      nav.classList.remove('nav--open');
-		      toggle.setAttribute('aria-expanded', 'false');
-		      document.body.style.overflow = '';
+		    function initNavDrawer() {
+		      var nav = document.getElementById('site-nav');
+		      var toggle = document.getElementById('nav-toggle');
+		      var backdrop = document.getElementById('nav-backdrop');
+		      if (!nav || !toggle) return;
+		      function closeDrawer() {
+		        document.body.classList.remove('nav-drawer-open');
+		        nav.classList.remove('nav--open');
+		        toggle.setAttribute('aria-expanded', 'false');
+		        document.body.style.overflow = '';
+		      }
+		      function openDrawer() {
+		        document.body.classList.add('nav-drawer-open');
+		        nav.classList.add('nav--open');
+		        toggle.setAttribute('aria-expanded', 'true');
+		        document.body.style.overflow = 'hidden';
+		      }
+		      toggle.addEventListener('click', function() {
+		        if (document.body.classList.contains('nav-drawer-open')) {
+		          closeDrawer();
+		        } else {
+		          openDrawer();
+		        }
+		      });
+		      if (backdrop) backdrop.addEventListener('click', closeDrawer);
+		      var menu = document.getElementById('nav-menu');
+		      if (menu) menu.addEventListener('click', function(e) {
+		        if (e.target.closest('a')) closeDrawer();
+		      });
+		      document.addEventListener('keydown', function(e) {
+		        if (e.key === 'Escape' && document.body.classList.contains('nav-drawer-open')) closeDrawer();
+		      });
 		    }
-		    toggle.addEventListener('click', function() {
-		      var open = nav.classList.toggle('nav--open');
-		      toggle.setAttribute('aria-expanded', open);
-		      document.body.style.overflow = open ? 'hidden' : '';
-		    });
-		    if (backdrop) backdrop.addEventListener('click', closeDrawer);
-		    var menu = document.getElementById('nav-menu');
-		    if (menu) menu.addEventListener('click', function(e) {
-		      if (e.target.closest('a')) closeDrawer();
-		    });
-		    document.addEventListener('keydown', function(e) {
-		      if (e.key === 'Escape' && nav.classList.contains('nav--open')) closeDrawer();
-		    });
+		    if (document.readyState === 'loading') {
+		      document.addEventListener('DOMContentLoaded', initNavDrawer);
+		    } else {
+		      initNavDrawer();
+		    }
 		  })();
 		</script>
 
