@@ -1,14 +1,12 @@
 ---
 layout: post
-title: "RabbitMQ Consumer Disconnection - False Flags and Pain in the A**"
+title: "Repeated RabbitMQ Incident That Lefts Thousands of Messages Unprocessed"
 date: 2026-03-05 10:00:00 +0530
 excerpt: "RabbitMQ consumers suddenly disconnected leaving queues with unacked messages and critical services like notifications and chat delivery stalled. This post walks through the debugging process, investigation steps, and the surprising root cause."
 tags: [RabbitMQ, DevOps, IncidentManagement, SystemD, Infrastructure, Debugging, MessageQueue]
 author: "Shantanu Sharma"
 slug: "rabbitmq-is-it-right-choice"
 ---
-
-## When RabbitMQ Consumers Disconnected and Our Queues Stopped Moving
 
 Early one morning, an alert popped up on our monitoring system. (LoL emails!!)
 
