@@ -11,7 +11,7 @@ slug: "rabbitmq-is-it-right-choice"
 Early one morning, an alert popped up on our monitoring system. (LoL emails!!)
 
 ```
-⚠️ Executer Server, RabbitMQ connection closed:
+Executer Server, RabbitMQ connection closed:
 Exception (320) Reason: "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
 Reconnecting...
 ```
@@ -23,17 +23,17 @@ At first glance, this looked like a routine reconnect event. RabbitMQ clients so
 Team investigated on heartbeat mismatch as probable cause.
 Added retry logic for reconnection attempts. This reduced the frequency of disconnects.
 
-But something else was happening.
+But something else was happening, as the issue persisted and we saw 
+consumer disconnection lately more often.
 
 This issue was leaving our message consumers disconnected, and queues began accumulating unacknowledged messages.
-
-That meant something serious.
 
 Several critical services depended on this pipeline:
 
 - **Notification delivery**
 - **Chat message processing**
 - **Background messaging workers**
+- **Many Other Services**
 
 If the consumers stayed disconnected, messages would stop flowing entirely.
 
@@ -100,7 +100,7 @@ uptime
 
 The instance had been running continuously for over six months.
 
-**Conclusion:** ✅ The EC2 instance did not reboot.
+**Conclusion:** The EC2 instance did not reboot.
 
 ### Disk Usage
 
@@ -114,7 +114,7 @@ df -h
 38GB free
 ```
 
-**Conclusion:** ✅ Disk pressure was not the issue.
+**Conclusion:** Disk pressure was not the issue.
 
 ### Memory Usage
 
@@ -128,7 +128,7 @@ free -h
 2.4GB used
 ```
 
-**Conclusion:** ✅ There was no memory exhaustion either.
+**Conclusion:** There was no memory exhaustion either.
 
 The server itself was healthy.
 
@@ -318,7 +318,7 @@ systemctl list-timers | grep apt
 (no output)
 ```
 
-✅ Automatic maintenance was now disabled.
+Automatic maintenance was now disabled.
 
 ---
 
@@ -400,9 +400,9 @@ One positive takeaway from this incident was the monitoring pipeline.
 
 **The system successfully:**
 
-✅ Detected the RabbitMQ shutdown  
-✅ Triggered consumer reconnection  
-✅ Sent an alert immediately
+- Detected the RabbitMQ shutdown  
+- Triggered consumer reconnection  
+- Sent an alert immediately
 
 **This confirmed that:**
 
