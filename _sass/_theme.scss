@@ -808,7 +808,7 @@ video {
 // ─── My Plate (grouped topics → subtopics, projects, posts) ───────────────────
 .my-plate-page {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .my-plate__tabs {
@@ -848,6 +848,80 @@ video {
   }
 }
 
+.my-plate__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--bg-footer-border);
+}
+
+.my-plate__page-size {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-body);
+
+  label {
+    color: var(--color-caption);
+  }
+
+  select {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--bg-footer-border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--color-body);
+    cursor: pointer;
+    min-width: 4ch;
+
+    &:hover,
+    &:focus {
+      border-color: var(--color-caption);
+      outline: none;
+    }
+  }
+}
+
+.my-plate__pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.my-plate__controls .my-plate__page-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--bg-footer-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-body); /* higher specificity overrides .typeset button */
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-link);
+    color: var(--color-link);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.my-plate__page-info {
+  font-size: 0.85rem;
+  color: var(--color-caption);
+}
+
 .my-plate__groups {
   margin-top: 0.5rem;
 }
@@ -862,11 +936,19 @@ video {
 
 .my-plate__topic-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  // Fluid responsive: columns appear as soon as ~260px fits per card
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 1rem;
 
   @include breakpoint(break-1) {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  @include breakpoint(break-2) {
+    gap: 1.5rem;
+  }
+
+  @include breakpoint(break-3) {
     gap: 1.75rem;
   }
 }
@@ -874,6 +956,10 @@ video {
 .my-plate__topic-card {
   display: block;
   border: 1px solid var(--bg-footer-border);
+
+  &[hidden] {
+    display: none; /* ensure pagination-hidden cards stay hidden (overrides display: block) */
+  }
   border-radius: 12px;
   background: var(--bg-code);
   text-decoration: none;

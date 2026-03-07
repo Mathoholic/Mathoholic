@@ -21,7 +21,62 @@ title: My Plate
       {% endfor %}
     </div>
 
+    <div class="my-plate__controls">
+      <div class="my-plate__page-size">
+        <label for="my-plate-page-size">Show</label>
+        <select id="my-plate-page-size" aria-label="Items per page">
+          <option value="4">4</option>
+          <option value="8" selected>8</option>
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="999">All</option>
+        </select>
+        <span>per page</span>
+      </div>
+      <nav class="my-plate__pagination" aria-label="Pagination">
+        <button type="button" class="my-plate__page-btn" data-action="prev" aria-label="Previous page" disabled>← Prev</button>
+        <span class="my-plate__page-info" aria-live="polite"></span>
+        <button type="button" class="my-plate__page-btn" data-action="next" aria-label="Next page" disabled>Next →</button>
+      </nav>
+    </div>
+
     <div class="my-plate__groups">
+      {% comment %} All topics in one grid (shown when "All" tab is active) {% endcomment %}
+      <section class="my-plate__group" id="panel-all" data-group="all" role="tabpanel" aria-labelledby="tab-all">
+        <div class="my-plate__topic-grid">
+          {% for group in site.data.learning.groups %}
+            {% for topic in group.topics %}
+              {% assign total = topic.subtopics | size %}
+              {% assign completed = 0 %}
+              {% for st in topic.subtopics %}
+                {% if st.status == 'completed' %}{% assign completed = completed | plus: 1 %}{% endif %}
+              {% endfor %}
+              {% assign pct = 0 %}
+              {% if total > 0 %}{% assign pct = completed | times: 100 | divided_by: total %}{% endif %}
+              <a href="{{ site.baseurl }}/my-plate/{{ topic.id }}/" class="my-plate__topic-card" data-topic-id="{{ topic.id }}">
+                <div class="my-plate__topic-card-inner">
+                  <header class="my-plate__topic-header">
+                    <h3 class="my-plate__topic-title">{{ topic.title }}</h3>
+                    <span class="my-plate__topic-progress" data-pct="{{ pct }}" title="{{ completed }}/{{ total }} completed">
+                      <span class="my-plate__progress-track">
+                        <span class="my-plate__progress-bar" style="width: {{ pct }}%"></span>
+                      </span>
+                      <span class="my-plate__progress-text">{{ completed }}/{{ total }}</span>
+                    </span>
+                  </header>
+                  {% if topic.description %}
+                    <p class="my-plate__topic-desc">{{ topic.description }}</p>
+                  {% endif %}
+                  <div class="my-plate__topic-footer">
+                    <span class="my-plate__topic-meta">{{ total }} topics in my roadmap</span>
+                    <span class="my-plate__topic-cta">See my journey →</span>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </section>
       {% for group in site.data.learning.groups %}
         <section class="my-plate__group" id="panel-{{ group.id }}" data-group="{{ group.id }}" role="tabpanel" aria-labelledby="tab-{{ group.id }}">
           <div class="my-plate__topic-grid">
@@ -69,11 +124,70 @@ title: My Plate
 (function() {
   var tabs = document.querySelectorAll('.my-plate__tab');
   var groups = document.querySelectorAll('.my-plate__group');
+  var pageSizeSelect = document.getElementById('my-plate-page-size');
+  var prevBtn = document.querySelector('.my-plate__page-btn[data-action="prev"]');
+  var nextBtn = document.querySelector('.my-plate__page-btn[data-action="next"]');
+  var pageInfo = document.querySelector('.my-plate__page-info');
   if (!tabs.length || !groups.length) return;
 
+  var currentPage = 1;
+  var pageSize = 8;
+  var currentGroupId = 'all';
+
+  var STORAGE_KEY = 'my-plate-page-size';
+
+  function getVisiblePanel() {
+    var panel = document.querySelector('.my-plate__group:not([hidden])');
+    return panel ? panel.querySelector('.my-plate__topic-grid') : null;
+  }
+
+  function getCards() {
+    var grid = getVisiblePanel();
+    return grid ? Array.from(grid.querySelectorAll('.my-plate__topic-card')) : [];
+  }
+
+  function getPageSize() {
+    if (!pageSizeSelect) return 999;
+    var val = parseInt(pageSizeSelect.value, 10);
+    return isNaN(val) ? 999 : val;
+  }
+
+  function getTotalPages() {
+    var cards = getCards();
+    var size = getPageSize();
+    if (size >= cards.length) return 1;
+    return Math.ceil(cards.length / size);
+  }
+
+  function updatePagination() {
+    var cards = getCards();
+    var size = getPageSize();
+    var totalPages = Math.ceil(cards.length / size) || 1;
+    currentPage = Math.min(currentPage, totalPages);
+
+    var start = (currentPage - 1) * size;
+    var end = start + size;
+
+    cards.forEach(function(card, i) {
+      card.hidden = i < start || i >= end;
+    });
+
+    if (prevBtn) prevBtn.disabled = currentPage <= 1;
+    if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+
+    if (pageInfo) {
+      pageInfo.textContent = totalPages <= 1 ? '' : 'Page ' + currentPage + ' of ' + totalPages;
+    }
+  }
+
   function showGroup(groupId) {
+    currentGroupId = groupId;
+    currentPage = 1;
+
     groups.forEach(function(panel) {
-      var match = groupId === 'all' || panel.getAttribute('data-group') === groupId;
+      var match = groupId === 'all'
+        ? panel.getAttribute('data-group') === 'all'
+        : panel.getAttribute('data-group') === groupId;
       panel.hidden = !match;
     });
     tabs.forEach(function(btn) {
@@ -81,6 +195,23 @@ title: My Plate
       btn.setAttribute('aria-selected', active);
       btn.classList.toggle('is-active', active);
     });
+
+    updatePagination();
+  }
+
+  function initPageSize() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && pageSizeSelect.querySelector('option[value="' + saved + '"]')) {
+        pageSizeSelect.value = saved;
+      }
+    } catch (e) {}
+  }
+
+  function savePageSize() {
+    try {
+      localStorage.setItem(STORAGE_KEY, pageSizeSelect.value);
+    } catch (e) {}
   }
 
   tabs.forEach(function(btn) {
@@ -89,7 +220,33 @@ title: My Plate
     });
   });
 
-  // Show "All" by default (all panels visible)
+  if (pageSizeSelect) {
+    initPageSize();
+    pageSizeSelect.addEventListener('change', function() {
+      currentPage = 1;
+      savePageSize();
+      updatePagination();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      if (!this.disabled) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      if (!this.disabled) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+  }
+
   showGroup('all');
 })();
 </script>
