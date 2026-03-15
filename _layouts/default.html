@@ -45,10 +45,9 @@
 			{% if page.author %}<meta property="article:author" content="{{ page.author }}">{% endif %}
 		{% endif %}
 
-		<!-- Google Fonts: preconnect for faster loading -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400i,700|Neuton:400,700" rel="stylesheet">
+		<!-- Preload critical fonts (self-hosted) -->
+		<link rel="preload" href="/assets/fonts/alegreya-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/assets/fonts/neuton-400.woff2" as="font" type="font/woff2" crossorigin>
 
 		<!-- Dark mode: set theme before paint to prevent flash -->
 		<script>
