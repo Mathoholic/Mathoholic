@@ -80,6 +80,71 @@
 			</script>
 		{% endif %}
 
+		<!-- JSON-LD: WebSite (all pages) -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "WebSite",
+		  "name": {{ site.title | jsonify }},
+		  "url": {{ site.url | jsonify }},
+		  "potentialAction": {
+		    "@type": "SearchAction",
+		    "target": {
+		      "@type": "EntryPoint",
+		      "urlTemplate": {{ site.url | append: "/blog?q={search_term_string}" | jsonify }}
+		    },
+		    "query-input": "required name=search_term_string"
+		  }
+		}
+		</script>
+
+		<!-- JSON-LD: Person (homepage only) -->
+		{% if page.layout == 'home' or page.url == '/' %}
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "name": {{ site.title | jsonify }},
+		  "url": {{ site.url | jsonify }},
+		  "description": {{ site.description | jsonify }},
+		  "image": {{ site.logo | prepend: site.url | jsonify }},
+		  "sameAs": [
+		    "https://linkedin.com/in/{{ site.social.linkedin }}",
+		    "https://instagram.com/{{ site.social.instagram }}",
+		    "https://threads.net/@{{ site.social.threads }}",
+		    "https://facebook.com/{{ site.social.facebook }}"
+		  ],
+		  "jobTitle": "Data Scientist & Backend Engineer"
+		}
+		</script>
+		{% endif %}
+
+		<!-- JSON-LD: Article (blog posts only) -->
+		{% if page.layout == 'post' %}
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Article",
+		  "headline": {{ page.title | jsonify }},
+		  "description": {% if page.description %}{{ page.description | jsonify }}{% else %}{{ page.excerpt | strip_html | truncate: 160 | jsonify }}{% endif %},
+		  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+		  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+		  "url": {{ page.url | prepend: site.url | jsonify }},
+		  "image": {% if page.image %}{{ page.image | prepend: site.url | jsonify }}{% else %}{{ site.logo | prepend: site.url | jsonify }}{% endif %},
+		  "author": {
+		    "@type": "Person",
+		    "name": {% if page.author %}{{ page.author | jsonify }}{% else %}{{ site.title | jsonify }}{% endif %},
+		    "url": {{ site.url | jsonify }}
+		  },
+		  "publisher": {
+		    "@type": "Person",
+		    "name": {{ site.title | jsonify }},
+		    "url": {{ site.url | jsonify }}
+		  }
+		}
+		</script>
+		{% endif %}
+
 	</head>
 	<body>
 
