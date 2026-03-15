@@ -81,6 +81,7 @@
 		{% endif %}
 
 		<!-- JSON-LD: WebSite (all pages) -->
+		{% capture jsonld_search_url %}{{ site.url }}/blog?q={search_term_string}{% endcapture %}
 		<script type="application/ld+json">
 		{
 		  "@context": "https://schema.org",
@@ -91,7 +92,7 @@
 		    "@type": "SearchAction",
 		    "target": {
 		      "@type": "EntryPoint",
-		      "urlTemplate": {{ site.url | append: "/blog?q={search_term_string}" | jsonify }}
+		      "urlTemplate": {{ jsonld_search_url | jsonify }}
 		    },
 		    "query-input": "required name=search_term_string"
 		  }
