@@ -8,10 +8,10 @@ groups:
       - id: concurrency-foundations
         title: "Programming & Concurrency Foundations"
         description: "I'm building my foundation here — how well I control the language and runtime. Most engineers write Go; I want to actually understand concurrency. Everything I build above this depends on getting this right."
-        link: "#"
+        link: "https://github.com/Mathoholic/golang"
         subtopics:
           - title: "Go language fundamentals"
-            status: planned
+            status: in_progress
             projects: []
             posts: []
           - title: "Goroutines"

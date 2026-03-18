@@ -2,13 +2,15 @@
 - title: "Worker pool system"
   description: "Concurrent worker pool implementation in Go."
   stack: ["Go", "Concurrency"]
-  link: "#"
+  link: "https://github.com/Mathoholic/golang"
+  external: true
   role: "Systems programming"
 
 - title: "Concurrent job processor"
   description: "Job queue with concurrent workers."
   stack: ["Go", "Channels", "Goroutines"]
-  link: "#"
+  link: "https://github.com/Mathoholic/golang"
+  external: true
   role: "Concurrency"
 
 - title: "Production API service"
