@@ -8,7 +8,7 @@ permalink: /resume/resume/
 
 **AI Systems & Backend Engineer | Tech Lead | Python · Go · LLMs · RAG**
 
-📍 Gurugram, India &nbsp;·&nbsp; [linkedin.com/in/mathoholic](https://www.linkedin.com/in/mathoholic/) &nbsp;·&nbsp; [mathoholic.com](https://mathoholic.com) &nbsp;·&nbsp; [github.com/Mathoholic](https://github.com/Mathoholic)
+Gurugram, India &nbsp;·&nbsp; [linkedin.com/in/mathoholic](https://www.linkedin.com/in/mathoholic/) &nbsp;·&nbsp; [mathoholic.com](https://mathoholic.com) &nbsp;·&nbsp; [github.com/Mathoholic](https://github.com/Mathoholic)
 
 ---
 
