@@ -1,0 +1,56 @@
+{% comment %}
+  Lightweight Table of Contents generator.
+  Parses H2 and H3 headings from post content and renders a nested <nav>.
+  Usage: {% include toc.html html=content %}
+
+  Opt-out per post:  toc: false  in front matter.
+{% endcomment %}
+
+{% if page.toc != false %}
+  {% assign headings = include.html | split: '<h' %}
+  {% assign toc_items = "" %}
+
+  {% for heading in headings %}
+    {% if heading == "" %}{% continue %}{% endif %}
+
+    {% assign level = heading | slice: 0 %}
+    {% if level == '2' or level == '3' %}
+      {% assign id_part = heading | split: 'id="' | last %}
+      {% assign id = id_part | split: '"' | first %}
+      {% assign text_part = heading | split: '>' | last %}
+      {% assign text = text_part | split: '</h' | first | strip_html | strip %}
+
+      {% if text != "" %}
+        {% if toc_items == "" %}
+          {% capture toc_items %}{{ level }}|||{{ id }}|||{{ text }}{% endcapture %}
+        {% else %}
+          {% capture toc_items %}{{ toc_items }}~~~{{ level }}|||{{ id }}|||{{ text }}{% endcapture %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if toc_items != "" %}
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc__title">Contents</p>
+    <ol class="toc__list">
+      {% assign items = toc_items | split: '~~~' %}
+      {% for item in items %}
+        {% assign parts = item | split: '|||' %}
+        {% assign lvl = parts[0] %}
+        {% assign anchor = parts[1] %}
+        {% assign label = parts[2] %}
+        {% if lvl == '2' %}
+        <li class="toc__item toc__item--h2">
+          <a href="#{{ anchor }}" class="toc__link">{{ label }}</a>
+        </li>
+        {% elsif lvl == '3' %}
+        <li class="toc__item toc__item--h3">
+          <a href="#{{ anchor }}" class="toc__link toc__link--sub">{{ label }}</a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+{% endif %}

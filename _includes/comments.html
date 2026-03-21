@@ -1,0 +1,40 @@
+{% if site.giscus.repo != "" and site.giscus.repo != nil %}
+<section class="comments-section" aria-label="Comments">
+  <h2 class="comments-section__title">Discussion</h2>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.giscus.repo }}"
+    data-repo-id="{{ site.giscus.repo_id }}"
+    data-category="{{ site.giscus.category }}"
+    data-category-id="{{ site.giscus.category_id }}"
+    data-mapping="{{ site.giscus.mapping | default: 'pathname' }}"
+    data-strict="0"
+    data-reactions-enabled="{{ site.giscus.reactions_enabled | default: '1' }}"
+    data-emit-metadata="{{ site.giscus.emit_metadata | default: '0' }}"
+    data-input-position="top"
+    data-theme="{{ site.giscus.theme_light | default: 'light' }}"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://giscus.app">comments powered by Giscus</a>.</noscript>
+</section>
+
+<script>
+// Sync Giscus theme with site dark/light mode
+(function() {
+  function applyGiscusTheme() {
+    var theme = document.documentElement.getAttribute('data-theme') === 'dark'
+      ? '{{ site.giscus.theme_dark | default: "dark" }}'
+      : '{{ site.giscus.theme_light | default: "light" }}';
+    var iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+  }
+  // Watch for theme toggle changes
+  var observer = new MutationObserver(applyGiscusTheme);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+}());
+</script>
+{% endif %}

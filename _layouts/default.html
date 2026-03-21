@@ -28,15 +28,19 @@
 		<meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
 		<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
 		<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-		{% if site.logo %}
+		{% if page.cover_image %}
+			<meta property="og:image" content="{{ page.cover_image | prepend: site.url }}">
+		{% elsif site.logo %}
 			<meta property="og:image" content="{{ site.logo | prepend: site.url }}">
 		{% endif %}
 
 		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary">
+		<meta name="twitter:card" content="{% if page.cover_image %}summary_large_image{% else %}summary{% endif %}">
 		<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
 		<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
-		{% if site.logo %}
+		{% if page.cover_image %}
+			<meta name="twitter:image" content="{{ page.cover_image | prepend: site.url }}">
+		{% elsif site.logo %}
 			<meta name="twitter:image" content="{{ site.logo | prepend: site.url }}">
 		{% endif %}
 

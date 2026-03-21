@@ -59,6 +59,19 @@ social:
   linkedin: "mathoholic"
   instagram: "mathoholic.build.logs"
 
+# Giscus comments — fill these in after installing the Giscus GitHub App
+# Steps: https://giscus.app  →  pick your repo  →  enable Discussions  →  paste IDs below
+giscus:
+  repo: ""           # e.g. yourusername/yourrepo
+  repo_id: ""        # from giscus.app
+  category: "Announcements"
+  category_id: ""    # from giscus.app
+  mapping: "pathname"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  theme_light: "light"
+  theme_dark: "dark"
+
 # 7. Site settings
 encoding: utf-8
 title: "Shantanu Sharma" 

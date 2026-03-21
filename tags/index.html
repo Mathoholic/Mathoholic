@@ -1,0 +1,33 @@
+---
+layout: default
+title: All Tags
+permalink: /tags/
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+  <div class="tags-index  typeset">
+    <header class="page-header">
+      <h1>All Tags</h1>
+    </header>
+
+    {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+    <div class="tags-cloud">
+      {% for tag in all_tags %}
+        {% assign tag_stripped = tag | strip %}
+        {% if tag_stripped != "" %}
+        <a href="{{ site.baseurl }}/tags/{{ tag_stripped | slugify }}/" class="tag-cloud-item label  label--tag">
+          {{ tag_stripped }}
+          <span class="tag-cloud-item__count">
+            {% assign count = site.posts | where_exp: "p", "p.tags contains tag_stripped" | size %}
+            {{ count }}
+          </span>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% include site-footer.html %}

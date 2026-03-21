@@ -15,7 +15,7 @@
 {% if _post.tags.size > 0 %}
   {% capture tags %}
     {% for tag in _post.tags %}
-      <span class="label  label--tag">{{ tag }}</span>{% unless forloop.last %} {% endunless %}
+      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="label  label--tag">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
     {% endfor %}
   {% endcapture %}
 {% endif %}
@@ -27,6 +27,6 @@
 {% endif %}
 
 <small class="small  post-meta">
-  {% if categories %}{{ categories | strip }}&nbsp;&middot;&nbsp;{% endif %}<time datetime="{{ _post.date | date_to_xmlschema }}" class="time">{{ _post.date | date_to_string }}</time>{% if reading_time %}&nbsp;&middot;&nbsp;{{ reading_time }}{% endif %}
+  {% if categories %}{{ categories | strip }}&nbsp;&middot;&nbsp;{% endif %}<time datetime="{{ _post.date | date_to_xmlschema }}" class="time">{{ _post.date | date_to_string }}</time>{% if reading_time %}&nbsp;&middot;&nbsp;{{ reading_time }}{% endif %}{% if words > 0 %}&nbsp;&middot;&nbsp;<span class="word-count">{{ words }} words</span>{% endif %}
   {% if tags %}<br><span class="tags">{{ tags | strip }}</span>{% endif %}
 </small>

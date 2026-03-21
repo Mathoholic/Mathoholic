@@ -1,32 +1,42 @@
 {% if paginator.posts %}
 
-  <ul class="list  list--posts">
+  <div class="post-grid">
     {% for post in paginator.posts %}
-      <li class="item  item--post">
-        <article class="article  article--listing">
-          <h2 class="listing-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <article class="post-card">
+        {% if post.cover_image %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="post-card__cover-link" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.cover_image }}" alt="{{ post.cover_image_alt | default: post.title }}" class="post-card__cover" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="post-card__body">
           {% include post-meta.html post=post %}
-          <p class="listing-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-          <a href="{{ site.baseurl }}{{ post.url }}" class="listing-read-more">Read article &rarr;</a>
-        </article>
-      </li>
+          <h2 class="post-card__title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="post-card__read-more">Read article &rarr;</a>
+        </div>
+      </article>
     {% endfor %}
-  </ul>
+  </div>
   {% include post-pagination.html %}
 
 {% else %}
 
-  <ul class="list  list--posts">
+  <div class="post-grid">
     {% for post in site.posts %}
-      <li class="item  item--post">
-        <article class="article  article--listing">
-          <h2 class="listing-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <article class="post-card">
+        {% if post.cover_image %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="post-card__cover-link" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.cover_image }}" alt="{{ post.cover_image_alt | default: post.title }}" class="post-card__cover" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="post-card__body">
           {% include post-meta.html post=post %}
-          <p class="listing-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-          <a href="{{ site.baseurl }}{{ post.url }}" class="listing-read-more">Read article &rarr;</a>
-        </article>
-      </li>
+          <h2 class="post-card__title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="post-card__read-more">Read article &rarr;</a>
+        </div>
+      </article>
     {% endfor %}
-  </ul>
+  </div>
 
 {% endif %}

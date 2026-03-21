@@ -1,0 +1,135 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+  <div class="search-page  typeset">
+
+    <header class="page-header">
+      <h1>Search</h1>
+    </header>
+
+    <div class="search-bar">
+      <label for="search-input" class="search-bar__label">Search posts</label>
+      <input
+        type="search"
+        id="search-input"
+        class="search-bar__input"
+        placeholder="Type to search posts, tags, topics…"
+        aria-label="Search posts"
+        autofocus
+      >
+    </div>
+
+    <p class="search-status" id="search-status" aria-live="polite"></p>
+
+    <div id="search-results" class="post-grid" aria-label="Search results"></div>
+
+  </div>
+</main>
+
+{% include site-footer.html %}
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzlcP6NFlCjKshiQnkdQn2CRMFMj/V4TjNHtTmFnS2g" crossorigin="anonymous"></script>
+<script>
+(function() {
+  var input  = document.getElementById('search-input');
+  var status = document.getElementById('search-status');
+  var results = document.getElementById('search-results');
+
+  var postsData = null;
+  var idx = null;
+
+  // Load post data + build index
+  fetch('{{ site.baseurl }}/search.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      postsData = data;
+      idx = lunr(function() {
+        this.ref('url');
+        this.field('title', { boost: 10 });
+        this.field('tags',  { boost: 5 });
+        this.field('excerpt');
+        data.forEach(function(post) {
+          this.add({
+            url:     post.url,
+            title:   post.title,
+            tags:    (post.tags || []).join(' '),
+            excerpt: post.excerpt
+          });
+        }, this);
+      });
+      // Run a search if there's already a query param
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('q')) {
+        input.value = params.get('q');
+        doSearch(params.get('q'));
+      }
+    })
+    .catch(function() {
+      status.textContent = 'Could not load search index.';
+    });
+
+  function cardHTML(post) {
+    var tagsHTML = (post.tags || []).map(function(t) {
+      return '<a href="{{ site.baseurl }}/tags/' + t.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '/" class="label label--tag">' + t + '</a>';
+    }).join(' ');
+
+    return '<article class="post-card">' +
+      (post.cover_image ? '<a href="' + post.url + '" class="post-card__cover-link" tabindex="-1" aria-hidden="true"><img src="' + post.cover_image + '" alt="" class="post-card__cover" loading="lazy"></a>' : '') +
+      '<div class="post-card__body">' +
+        '<small class="small post-meta"><time>' + post.date + '</time></small>' +
+        (tagsHTML ? '<br><span class="tags">' + tagsHTML + '</span>' : '') +
+        '<h2 class="post-card__title"><a href="' + post.url + '">' + post.title + '</a></h2>' +
+        '<p class="post-card__excerpt">' + post.excerpt + '</p>' +
+        '<a href="' + post.url + '" class="post-card__read-more">Read article &rarr;</a>' +
+      '</div></article>';
+  }
+
+  function doSearch(query) {
+    if (!idx) return;
+    query = query.trim();
+    if (!query) {
+      results.innerHTML = '';
+      status.textContent = '';
+      return;
+    }
+
+    var hits;
+    try {
+      hits = idx.search(query + '~1');  // fuzzy match
+    } catch(e) {
+      hits = idx.search(query);
+    }
+
+    if (hits.length === 0) {
+      results.innerHTML = '';
+      status.textContent = 'No posts found for \u201c' + query + '\u201d';
+      return;
+    }
+
+    status.textContent = hits.length + ' result' + (hits.length > 1 ? 's' : '') + ' for \u201c' + query + '\u201d';
+    results.innerHTML = hits.map(function(hit) {
+      var post = postsData.find(function(p) { return p.url === hit.ref; });
+      return post ? cardHTML(post) : '';
+    }).join('');
+  }
+
+  var debounceTimer;
+  input.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+      // Update URL without reload
+      var url = new URL(window.location);
+      if (input.value) { url.searchParams.set('q', input.value); }
+      else { url.searchParams.delete('q'); }
+      window.history.replaceState({}, '', url);
+      doSearch(input.value);
+    }, 200);
+  });
+}());
+</script>

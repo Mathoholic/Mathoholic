@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+  <div class="tag-page  typeset">
+
+    <header class="page-header">
+      <p class="tag-page__back"><a href="{{ site.baseurl }}/blog">&larr; All posts</a></p>
+      <h1 class="tag-page__heading">
+        <span class="tag-page__label">Tag:</span> {{ page.tag }}
+      </h1>
+    </header>
+
+    {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
+
+    {% if tagged_posts.size == 0 %}
+      <p>No posts tagged <strong>{{ page.tag }}</strong> yet.</p>
+    {% else %}
+      <ul class="list  list--posts">
+        {% for post in tagged_posts %}
+          <li class="item  item--post">
+            <article class="article  article--listing">
+              {% if post.cover_image %}
+              <a href="{{ site.baseurl }}{{ post.url }}" class="listing-cover-link" tabindex="-1" aria-hidden="true">
+                <img src="{{ post.cover_image }}" alt="{{ post.cover_image_alt | default: post.title }}" class="listing-thumbnail" loading="lazy">
+              </a>
+              {% endif %}
+              <h2 class="listing-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+              {% include post-meta.html post=post %}
+              <p class="listing-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+              <a href="{{ site.baseurl }}{{ post.url }}" class="listing-read-more">Read article &rarr;</a>
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+</main>
+
+{% include site-footer.html %}
