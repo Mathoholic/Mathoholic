@@ -1,4 +1,4 @@
-﻿---
+---
 layout: tag
 title: "Posts tagged: Optimization"
 tag: Optimization

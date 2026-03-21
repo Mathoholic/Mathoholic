@@ -1,4 +1,4 @@
-﻿---
+---
 layout: tag
 title: "Posts tagged: RabbitMQ"
 tag: RabbitMQ
