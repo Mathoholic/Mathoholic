@@ -23,17 +23,24 @@
 <script>
 // Sync Giscus theme with site dark/light mode
 (function() {
-  function applyGiscusTheme() {
-    var theme = document.documentElement.getAttribute('data-theme') === 'dark'
+  function getTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark'
       ? '{{ site.giscus.theme_dark | default: "dark" }}'
       : '{{ site.giscus.theme_light | default: "light" }}';
+  }
+  function sendTheme() {
     var iframe = document.querySelector('iframe.giscus-frame');
     if (iframe) {
-      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: getTheme() } } }, 'https://giscus.app');
     }
   }
-  // Watch for theme toggle changes
-  var observer = new MutationObserver(applyGiscusTheme);
+  // Apply correct theme as soon as giscus iframe is ready (first message from it)
+  window.addEventListener('message', function(event) {
+    if (event.origin !== 'https://giscus.app') return;
+    sendTheme();
+  }, { once: true });
+  // Watch for subsequent theme toggle changes
+  var observer = new MutationObserver(sendTheme);
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 }());
 </script>
