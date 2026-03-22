@@ -2,6 +2,8 @@
 layout: post
 title: "Why Some Docker Builds Are Fast and Others Are Painfully Slow"
 date: 2025-12-21 10:00:00 +0530
+cover_image: "/assets/images/make-docker-use-better.png"
+cover_image_alt: "Your Dockerfile Is the Problem — Make Docker Builds Great Again"
 description: "Docker build optimization guide: layer caching, multi-stage builds, .dockerignore, and 7 Dockerfile anti-patterns that slow CI/CD pipelines by 70–90%. Fix them today."
 excerpt: "Most people blame Docker when builds are slow. The real culprit is almost always the Dockerfile. Here's how Docker caching actually works, the seven patterns that kill performance, and the fixes that cut rebuild times by 70–90%."
 tags: [Docker, DevOps, CI, Performance, Containers, BuildOptimization]

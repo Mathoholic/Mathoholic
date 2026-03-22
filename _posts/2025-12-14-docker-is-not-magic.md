@@ -2,6 +2,8 @@
 layout: post
 title: "Docker Is Not Magic: What Really Happens Under the Hood"
 date: 2025-12-14 10:00:00 +0530
+cover_image: "/assets/images/docker-how-it-works.png"
+cover_image_alt: "How Containers Actually Work — and Why Most Devs Get It Wrong"
 description: "How Docker really works: Linux namespaces, cgroups, union filesystems, volumes, and container networking explained for backend engineers. Stop debugging Docker blindly."
 excerpt: "Most developers know how to run Docker commands. Very few understand what Docker actually does. This article strips Docker down to its bones — namespaces, cgroups, union filesystems, volumes, and networking — so you can stop debugging blindly."
 tags: [Docker, DevOps, Containers, Linux, Infrastructure, Fundamentals]
