@@ -2,6 +2,8 @@
 layout: post
 title: "Make Your Python Code Faster with Dictionary Lookups"
 date: 2024-08-12 03:48:38 +0530
+cover_image: "/assets/images/make-python-code-faster.png"
+cover_image_alt: "Make Your Python Code Faster with Dictionary Lookups"
 description: "Python dictionary lookup vs if-else: why O(1) hash table lookups dramatically outperform conditional chains on large datasets. Practical examples for data scientists and backend engineers."
 excerpt: "In the world of programming, efficiency is key. Whether you're a beginner or a seasoned developer, finding ways to optimize your code can make a significant difference, especially when working with large datasets. One powerful tool in Python that often goes underutilized is the dictionary lookup."
 tags: [Python, Programming, DataScience, CodingEfficiency, TechTips, Optimization]
