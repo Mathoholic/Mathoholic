@@ -14,9 +14,16 @@
 
 {% if _post.tags.size > 0 %}
   {% capture tags %}
-    {% for tag in _post.tags %}
-      <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="label  label--tag">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
-    {% endfor %}
+    {% if include.card %}
+      {% for tag in _post.tags limit: 3 %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="label  label--tag">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
+      {% endfor %}
+      {% if _post.tags.size > 3 %}<span class="label label--tag label--tag-more">+{{ _post.tags.size | minus: 3 }}</span>{% endif %}
+    {% else %}
+      {% for tag in _post.tags %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="label  label--tag">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
+      {% endfor %}
+    {% endif %}
   {% endcapture %}
 {% endif %}
 
