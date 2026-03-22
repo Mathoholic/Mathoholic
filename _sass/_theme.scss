@@ -456,10 +456,10 @@ video {
   }
   pre {
     white-space: pre;
-    overflow-x: scroll;
-    border-left: 3px solid var(--color-link); // research: accent on code blocks
-    padding-left: 1rem;
-    margin-left: -1rem;  // re-align to column edge
+    overflow-x: auto;
+    margin-left: 0;  // no more negative offset
+    font-size: 0.82em;
+    line-height: 1.65;
   }
   // Inline code
   p code, li code {

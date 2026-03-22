@@ -110,6 +110,51 @@
   pointer-events: none;
 }
 
+// ─── Code block container ─────────────────────────────────────────────────────
+.highlighter-rouge {
+  border-radius: 8px;
+  border: 1px solid var(--bg-footer-border);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+
+  // Coloured top bar acts as language accent
+  &::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--color-link);
+  }
+
+  // Remove typeset's own margin-bottom from inner pre since container handles it
+  .typeset & pre {
+    margin-bottom: 0 !important;
+  }
+}
+
+// Styled scrollbar inside code blocks
+.highlight pre,
+.highlighter-rouge pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-footer-border) transparent;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bg-footer-border);
+    border-radius: 2px;
+
+    &:hover {
+      background: var(--color-caption);
+    }
+  }
+}
+
 // ─── Copy code button ─────────────────────────────────────────────────────────
 pre {
   position: relative;
@@ -119,12 +164,12 @@ pre {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  padding: 0.2rem 0.65rem;
-  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.68rem;
   font-family: inherit;
-  background: var(--bg-code);
-  color: var(--color-caption);
-  border: 1px solid var(--bg-footer-border);
+  background: var(--bg-footer-border);
+  color: var(--color-heading) !important;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   opacity: 0;
@@ -140,7 +185,6 @@ pre {
   &:hover {
     background: var(--color-link);
     color: #fff;
-    border-color: var(--color-link);
   }
 
   &:active {
