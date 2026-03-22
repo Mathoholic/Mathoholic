@@ -60,7 +60,6 @@ social:
   instagram: "mathoholic.build.logs"
 
 # Giscus comments — fill these in after installing the Giscus GitHub App
-# Steps: https://giscus.app  →  pick your repo  →  enable Discussions  →  paste IDs below
 giscus:
   repo: "Mathoholic/Mathoholic"
   repo_id: "R_kgDOMiFOzw"
