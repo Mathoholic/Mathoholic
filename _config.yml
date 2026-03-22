@@ -55,6 +55,7 @@ defaults:
 # 8. Social handles (leave blank to hide)
 social:
   facebook: "mathoholicbuilds"
+  twitter: "litemathoholic"
   threads: "mathoholic.build.logs"
   linkedin: "mathoholic"
   instagram: "mathoholic.build.logs"
