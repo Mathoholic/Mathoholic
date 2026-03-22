@@ -2,6 +2,7 @@
 layout: post
 title: "Beginner's Guide to Machine Learning"
 date: 2024-06-22 04:16:16 +0530
+description: "A beginner's guide to machine learning: what it is, how it works, supervised vs unsupervised learning, and the 7 essential steps in every ML pipeline. No math degree required."
 excerpt: "This series of articles will make machine learning easier to understand with resources to learn in depth. Learn what machine learning is, how it works, and the 7 essential steps in the ML process."
 tags: [MachineLearning, AI, DataScience, BeginnerGuide]
 author: "Shantanu Sharma"

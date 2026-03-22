@@ -76,7 +76,7 @@ giscus:
 encoding: utf-8
 title: "Shantanu Sharma" 
 logo: "/assets/logo.svg" 
-description: "Data Scientist & Backend Engineer | AI, LLMs, ETL & Scalable Systems"
+description: "Shantanu Sharma — Data Scientist & Backend Engineer building LLM applications, RAG pipelines, FastAPI microservices, and distributed systems with Python and Go."
 url: "https://mathoholic.com" 
 baseurl: ""
 lang: en-GB

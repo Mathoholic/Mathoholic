@@ -1,6 +1,7 @@
 ---
 title: About Me
 layout: page
+description: "Shantanu Sharma is a Data Scientist and Backend Engineer from India specializing in LLMs, RAG pipelines, FastAPI, Go microservices, RabbitMQ, ETL systems, and AI-powered SaaS products."
 ---
 
 Hi! I'm **Shantanu**, a Data Scientist and Software Engineer from India. I specialize in building scalable backend systems, designing AI/ML solutions, and leveraging modern web technologies. My passion lies in solving challenging problems at the intersection of **Mathematics, Data Science, and Software Engineering**.

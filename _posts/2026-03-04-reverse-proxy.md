@@ -2,6 +2,7 @@
 layout: post
 title: "Reverse Proxy in Backend Engineering"
 date: 2026-03-04 03:48:38 +0530
+description: "Learn how reverse proxies work in production backend systems — SSL termination, load balancing, routing, and caching. A practical guide for backend engineers using Nginx, Caddy, or custom Go proxies."
 excerpt: "A reverse proxy sits between your clients and your backend services — handling SSL, routing, load balancing, caching, and more. Here's how it works and why every production system uses one."
 tags: [Devops, Backend]
 author: "Shantanu Sharma"
