@@ -2,6 +2,8 @@
 layout: post
 title: "Repeated RabbitMQ Incident That Lefts Thousands of Messages Unprocessed"
 date: 2026-03-05 10:00:00 +0530
+cover_image: "/assets/images/rbmq-connection-closed.png"
+cover_image_alt: "Repeated RabbitMQ Incident That Left Thousands of Messages Unprocessed"
 description: "RabbitMQ unacked messages piling up and consumers disconnecting? This incident post covers the root cause, debugging steps, and the fix for RabbitMQ connection forced closure in production."
 excerpt: "RabbitMQ consumers suddenly disconnected leaving queues with unacked messages and critical services like notifications and chat delivery stalled. This post walks through the debugging process, investigation steps, and the surprising root cause."
 tags: [RabbitMQ, DevOps, IncidentManagement, SystemD, Infrastructure, Debugging, MessageQueue]
