@@ -6,41 +6,52 @@ permalink: /resume/resume/
 
 # Shantanu Sharma
 
-**AI Systems & Backend Engineer | Tech Lead | Python · Go · LLMs · RAG**
+**AI/ML Engineer**
 
 Gurugram, India &nbsp;·&nbsp; [linkedin.com/in/mathoholic](https://www.linkedin.com/in/mathoholic/) &nbsp;·&nbsp; [mathoholic.com](https://mathoholic.com) &nbsp;·&nbsp; [github.com/Mathoholic](https://github.com/Mathoholic)
 
+AI/ML Engineer focused on building production-grade AI systems and scalable backend infrastructure. Experienced in RAG pipelines, LLM-powered search, and recommendation systems, along with event-driven architectures and AWS-based services. Delivered end-to-end products across SaaS, real-time communication, offline navigation, and climate analytics. Strong focus on system design, performance, and deploying AI in real-world applications.
+
 ---
 
-## Skills
+## Technical Skills
 
-**Languages:** Python, Go, SQL &nbsp;|&nbsp; **Backend:** FastAPI, Gin, WebSockets, REST, JWT, microservices  
-**AI / LLM:** RAG, LangChain, OpenAI API, vector databases &nbsp;|&nbsp; **Messaging:** RabbitMQ, Celery  
-**Infra:** Docker, AWS, Prometheus, Grafana, CI/CD &nbsp;|&nbsp; **Databases:** PostgreSQL, MongoDB, Redis
+**Languages:** Python, Go, SQL, NoSQL  
+**Backend Frameworks:** FastAPI, Django, Flask, Gin  
+**Databases:** PostgreSQL, MySQL, MongoDB, SQLite, Snowflake  
+**DevOps & Cloud:** Docker, AWS (EC2, RDS, S3, ECS), Azure DevOps  
+**Messaging & Queues:** RabbitMQ, Celery, WebSockets  
+**Tools & Libraries:** NumPy, Pandas, Matplotlib, LangChain  
+**Core Concepts:** CI/CD, ETL, Data Warehousing, Microservices, LLM Systems
 
 ---
 
 ## Experience
 
-### **Data Scientist & Tech Lead – [CentoCode](https://www.centocode.com)** *(Oct 2024 – Present · Gurugram)*
+### **AI/ML Engineer – [Centocode Technologies](https://www.centocode.com)** *(Sep 2024 – Present)*
 
-- **Tech Lead** on, a WhatsApp-first SaaS for marketing & automation — built on Go, Python, RabbitMQ, PostgreSQL, and Meta WhatsApp Cloud APIs.
-- Designed secure, role-scoped API layer with feature gating, plan-based usage limits, and Razorpay billing lifecycle (subscriptions, credits, invoices).
-- Integrated third-party platforms (IndiaMart, Meta Leads, Shopify, Amazon Seller) via async RabbitMQ pipelines for lead and order ingestion.
-- Built **RAG pipelines** (FastAPI + vector DBs) — semantic chunking, embedding, retrieval, and contextual LLM responses.
-- Designed Go (Gin) backend for an **AI interview platform**: LLM question generation, event-driven scoring via RabbitMQ, face detection and eye gaze analysis.
-- Shipped API Gateway with dynamic routing, Consul service discovery, caching, and reverse proxy.
-- Configured AWS infrastructure (EC2, S3, IAM, CloudWatch) and Prometheus + Grafana monitoring.
+- Built RAG-based AI systems using LLMs and ChromaDB, reducing information retrieval time by ~40% through optimized embedding and retrieval pipelines
+- Developed natural language search systems for structured datasets, improving accessibility for non-technical users
+- Designed and deployed recommendation engines using NLP and content-based filtering, integrated into a React Native app
+- Built and maintained vector data pipelines, enabling low-latency embedding generation and retrieval
+- Built backend services for a **WhatsApp API SaaS platform**: webhook ingestion, message workflows, and campaign execution; implemented RabbitMQ-based event-driven architecture processing ~150K+ messages/month with retry mechanisms and dead-letter queuing
+- Developed an **LLM-based Interview Platform** (AWS: Chime, EventBridge, SQS, RDS): enabled real-time interview sessions with asynchronous evaluation pipelines
+- Worked on an **Offline Navigation System** (Ubuntu, C++, QML, OSRM): implemented routing and GPS tracking in fully offline environments
+- Contributed to **ClimAnalytix** (Climate Analytics Platform): built pipelines for climate datasets (rainfall, temperature, crop data) and enabled geospatial analytics for risk assessment across regions in India
 
-### **Data Scientist – [1ViewApps.com](https://1viewapps.com/etl/#top)** *(Mar 2024 – Oct 2024 · Gurugram)*
+### **Senior Data Scientist – [1ViewApps](https://1viewapps.com/etl/#top)** *(Feb 2024 – Aug 2024)*
 
-- Architected ETL microservices with RabbitMQ + Celery for async, high-throughput data extraction across multiple third-party APIs.
-- Owned product feature delivery end-to-end across cross-functional teams.
+- Built AI-powered features including search, chatbots, and data visualization using LLMs and LangChain
+- Designed modular ETL pipelines for structured and semi-structured data from multiple sources
+- Implemented CI/CD pipelines using AWS and Azure DevOps
+- Automated data workflows using Airflow, improving reliability of daily data refresh cycles
 
-### **Associate Data Scientist – [KDataScience Solutions](https://kdatascience.com/)** *(Jun 2023 – Oct 2024 · Remote)*
+### **Associate Data Scientist – [KDataScience Solutions Pvt. Ltd.](https://kdatascience.com/)** *(Jun 2023 – Feb 2024)*
 
-- Built Python + MSSQL data pipelines powering Power BI dashboards; validated multi-source data with Pydantic + SQLAlchemy.
-- Mentored junior trainees in data warehousing and analytics workflows.
+- Developed data pipelines using Python for large-scale data ingestion and processing
+- Built backend services for on-demand data processing
+- Designed pipelines for Power BI integration using Python and MSSQL
+- Optimized data workflows for performance and scalability
 
 ---
 
