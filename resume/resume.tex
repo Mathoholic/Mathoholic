@@ -1,0 +1,115 @@
+\documentclass[10pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[top=0.45in, bottom=0.45in, left=0.6in, right=0.6in]{geometry}
+\usepackage{fontspec}           % XeLaTeX font selection
+\usepackage[compact]{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}  % ATS: no colored text, links still functional
+\usepackage{xcolor}
+\usepackage{microtype}
+
+% ── Fonts ─────────────────────────────────────────────────────────────────────
+\setmainfont{Latin Modern Roman}
+
+% ATS: plain black links, no color markup that screeners may skip
+\hypersetup{pdfencoding=auto}
+
+% ── Spacing ───────────────────────────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+
+% Section: bold, normal size, with rule below
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+% Subsection: bold, normal size (used for company name lines)
+\titleformat{\subsection}{\bfseries\normalsize}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Bullet list tight
+\setlist[itemize]{noitemsep, topsep=1pt, parsep=0pt, leftmargin=1.2em}
+
+% ── Helper: company entry heading  ────────────────────────────────────────────
+% \job{Title}{Company}{URL}{Period}
+% ATS: date on its own line so left-to-right parsers read it correctly
+\newcommand{\job}[4]{%
+  \subsection*{\textbf{#1} \textendash\ \href{#3}{#2}}%
+  \textit{#4}\par\vspace{1pt}%
+}
+
+% ── Divider ───────────────────────────────────────────────────────────────────
+\newcommand{\divider}{\vspace{1pt}\noindent\rule{\linewidth}{0.4pt}\vspace{1pt}}
+
+% ── No page numbers ───────────────────────────────────────────────────────────
+\pagestyle{empty}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Header ────────────────────────────────────────────────────────────────────
+{\LARGE\bfseries Shantanu Sharma}\\[2pt]
+{\large AI/ML Engineer}\\[3pt]
+Gurugram, India~|~%
+\href{https://www.linkedin.com/in/mathoholic/}{linkedin.com/in/mathoholic}~|~%
+\href{https://mathoholic.com}{mathoholic.com}~|~%
+\href{https://github.com/Mathoholic}{github.com/Mathoholic}
+
+\divider
+
+AI/ML Engineer focused on building production-grade AI systems and scalable backend infrastructure.
+Experienced in RAG pipelines, LLM-powered search, and recommendation systems, along with
+event-driven architectures and AWS-based services. Delivered end-to-end products across SaaS,
+real-time communication, offline navigation, and climate analytics. Strong focus on system design,
+performance, and deploying AI in real-world applications.
+
+% ── Technical Skills ──────────────────────────────────────────────────────────
+\section{Technical Skills}
+
+\textbf{Languages:} Python, Go, SQL, NoSQL \\
+\textbf{Backend Frameworks:} FastAPI, Django, Flask, Gin \\
+\textbf{Databases:} PostgreSQL, MySQL, MongoDB, SQLite, Snowflake \\
+\textbf{DevOps \& Cloud:} Docker, AWS (EC2, RDS, S3, ECS), Azure DevOps \\
+\textbf{Messaging \& Queues:} RabbitMQ, Celery, WebSockets \\
+\textbf{Tools \& Libraries:} NumPy, Pandas, Matplotlib, LangChain \\
+\textbf{Core Concepts:} CI/CD, ETL, Data Warehousing, Microservices, LLM Systems
+
+% ── Experience ────────────────────────────────────────────────────────────────
+\section{Experience}
+
+\job{AI/ML Engineer}{Centocode Technologies}{https://www.centocode.com}{Sep 2024 -- Present}
+\begin{itemize}
+  \item Built RAG-based AI systems using LLMs and ChromaDB, reducing information retrieval time by \textasciitilde40\% through optimized embedding and retrieval pipelines
+  \item Developed natural language search systems for structured datasets, improving accessibility for non-technical users
+  \item Designed and deployed recommendation engines using NLP and content-based filtering, integrated into a React Native app
+  \item Built and maintained vector data pipelines, enabling low-latency embedding generation and retrieval
+  \item Built backend services for a \textbf{WhatsApp API SaaS platform}: webhook ingestion, message workflows, and campaign execution; implemented RabbitMQ-based event-driven architecture processing \textasciitilde150K+ messages/month with retry mechanisms and dead-letter queuing
+  \item Developed an \textbf{LLM-based Interview Platform} (AWS: Chime, EventBridge, SQS, RDS): enabled real-time interview sessions with asynchronous evaluation pipelines
+  \item Worked on an \textbf{Offline Navigation System} (Ubuntu, C++, QML, OSRM): implemented routing and GPS tracking in fully offline environments
+  \item Contributed to \textbf{ClimAnalytix} (Climate Analytics Platform): built pipelines for climate datasets (rainfall, temperature, crop data) and enabled geospatial analytics for risk assessment across regions in India
+\end{itemize}
+
+\job{Senior Data Scientist}{1ViewApps}{https://1viewapps.com/etl/}{Feb 2024 -- Aug 2024}
+\begin{itemize}
+  \item Built AI-powered features including search, chatbots, and data visualization using LLMs and LangChain
+  \item Designed modular ETL pipelines for structured and semi-structured data from multiple sources
+  \item Implemented CI/CD pipelines using AWS and Azure DevOps
+  \item Automated data workflows using Airflow, improving reliability of daily data refresh cycles
+\end{itemize}
+
+\job{Associate Data Scientist}{KDataScience Solutions Pvt. Ltd.}{https://kdatascience.com/}{Jun 2023 -- Feb 2024}
+\begin{itemize}
+  \item Developed data pipelines using Python for large-scale data ingestion and processing
+  \item Built backend services for on-demand data processing
+  \item Designed pipelines for Power BI integration using Python and MSSQL
+  \item Optimized data workflows for performance and scalability
+\end{itemize}
+
+% ── Education & Certifications ────────────────────────────────────────────────
+\section{Education}
+
+\textbf{B.A. Mathematics (Hons)} -- Dr.\ B.R. Ambedkar University Delhi \hfill \textit{2015--2020}
+
+\end{document}

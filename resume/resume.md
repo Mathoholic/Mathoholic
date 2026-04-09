@@ -55,8 +55,6 @@ AI/ML Engineer focused on building production-grade AI systems and scalable back
 
 ---
 
-## Education & Certifications
+## Education
 
 **B.A. Mathematics (Hons)** – Dr. B.R. Ambedkar University Delhi *(2015–2020)*
-
-Certifications: [Python](https://www.coursera.org/share/786f2dbac36f7ee7470d3bab72684a60) · [SQL](https://www.udemy.com/certificate/UC-b716f3ea-af2b-48af-bdb7-e93a15359700/) · [Power BI](https://www.udemy.com/certificate/UC-44e6e979-0288-461b-a7aa-eb28afe93ff0/) · [Tableau](https://coursera.org/share/47754a838923295e841e3b772d74c8fc) · [dbt](https://www.linkedin.com/learning/certificates/6e70788ea26944ad1dc2490eae80ac6239486fc89431b8e8d96629f4aaa9dfe9?trk=share_certificate)

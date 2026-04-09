@@ -1,49 +1,32 @@
-# Generate resume PDF from markdown using Pandoc
+# Generate resume PDF from resume.tex using XeLaTeX
 
-Write-Host "Generating professional resume PDF..." -ForegroundColor Green
+Write-Host "Generating resume PDF..." -ForegroundColor Green
 
 $outputFile = "output\Shantanu_Sharma_Resume.pdf"
 
-# Check for LaTeX engines
+# Find XeLaTeX or LuaLaTeX
 $pdfEngine = ""
-$engines = @("xelatex", "lualatex")
-
-foreach ($engine in $engines) {
+foreach ($engine in @("xelatex", "lualatex")) {
     try {
         $null = Get-Command $engine -ErrorAction Stop
         $pdfEngine = $engine
-        Write-Host "Using $engine for professional typography" -ForegroundColor Cyan
+        Write-Host "Using $engine" -ForegroundColor Cyan
         break
-    } catch {
-        # Continue to next engine
-    }
+    } catch {}
 }
 
 if ($pdfEngine -eq "") {
-    $pdfEngine = "C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"
-    Write-Host "Using wkhtmltopdf with CSS styling" -ForegroundColor Yellow
+    Write-Host "Error: xelatex or lualatex not found. Install MiKTeX or TeX Live." -ForegroundColor Red
+    exit 1
 }
 
-# Generate PDF
-if ($pdfEngine -eq "xelatex" -or $pdfEngine -eq "lualatex") {
-    # LaTeX generation with metadata
-    pandoc resume.md -o $outputFile --pdf-engine=$pdfEngine -V geometry:margin=0.5in -V fontsize=11pt -V colorlinks=true --metadata title="Shantanu Sharma - Resume"
-} else {
-    # Two-step process: HTML first, then PDF with explicit title
-    $tempHtml = "temp-resume.html"
-    pandoc resume.md -o $tempHtml --template=templates\simple-template.html --css=resume-style.css --metadata title="Shantanu Sharma - Resume"
-    
-    # Convert HTML to PDF with explicit title
-    & "$pdfEngine" --page-size A4 --margin-top 5mm --margin-bottom 5mm --margin-left 8mm --margin-right 8mm --enable-local-file-access --print-media-type --title "Shantanu Sharma - Resume" $tempHtml $outputFile
-    
-    # Clean up temp file
-    Remove-Item $tempHtml -Force
-}
+# Compile resume.tex directly
+& $pdfEngine -interaction=nonstopmode -output-directory=output resume.tex | Out-Null
+Copy-Item -Force "output\resume.pdf" $outputFile -ErrorAction SilentlyContinue
+Remove-Item "output\resume.log","output\resume.aux","output\resume.out" -Force -ErrorAction SilentlyContinue
 
-# Check result
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "Resume PDF generated successfully: $outputFile" -ForegroundColor Green
-    Write-Host "PDF Engine used: $pdfEngine" -ForegroundColor Cyan
+if (Test-Path $outputFile) {
+    Write-Host "Resume PDF generated: $outputFile" -ForegroundColor Green
 } else {
     Write-Host "Error generating PDF" -ForegroundColor Red
 }
