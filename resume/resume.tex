@@ -2,15 +2,14 @@
 
 % ── Packages ──────────────────────────────────────────────────────────────────
 \usepackage[top=0.45in, bottom=0.45in, left=0.6in, right=0.6in]{geometry}
-\usepackage{fontspec}           % XeLaTeX font selection
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage[compact]{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}  % ATS: no colored text, links still functional
 \usepackage{xcolor}
 \usepackage{microtype}
-
-% ── Fonts ─────────────────────────────────────────────────────────────────────
-\setmainfont{Latin Modern Roman}
 
 % ATS: plain black links, no color markup that screeners may skip
 \hypersetup{pdfencoding=auto}
@@ -51,65 +50,87 @@
 
 % ── Header ────────────────────────────────────────────────────────────────────
 {\LARGE\bfseries Shantanu Sharma}\\[2pt]
-{\large AI/ML Engineer}\\[3pt]
-Gurugram, India~|~%
+{\large AI/ML Engineer \textbar\ GenAI Systems \textbar\ Backend Infrastructure}\\[3pt]
+Haryana, India~|~Open to Remote (Worldwide)~|~%
 \href{https://www.linkedin.com/in/mathoholic/}{linkedin.com/in/mathoholic}~|~%
 \href{https://mathoholic.com}{mathoholic.com}~|~%
 \href{https://github.com/Mathoholic}{github.com/Mathoholic}
 
 \divider
 
-AI/ML Engineer focused on building production-grade AI systems and scalable backend infrastructure.
-Experienced in RAG pipelines, LLM-powered search, and recommendation systems, along with
-event-driven architectures and AWS-based services. Delivered end-to-end products across SaaS,
-real-time communication, offline navigation, and climate analytics. Strong focus on system design,
-performance, and deploying AI in real-world applications.
+AI/ML Engineer with hands-on experience building production-grade GenAI systems, event-driven SaaS
+platforms, and scalable backend infrastructure. Served as tech lead for a 12-person cross-functional
+engineering team, owning architecture decisions, tech stack choices, PR reviews, and end-to-end
+feature delivery. Built and shipped a SaaS automation platform actively used by 50+
+businesses processing thousands of campaigns monthly. Strong across the full stack: backend,
+frontend, and mobile. Open to remote roles worldwide.
 
 % ── Technical Skills ──────────────────────────────────────────────────────────
 \section{Technical Skills}
 
-\textbf{Languages:} Python, Go, SQL, NoSQL \\
-\textbf{Backend Frameworks:} FastAPI, Django, Flask, Gin \\
-\textbf{Databases:} PostgreSQL, MySQL, MongoDB, SQLite, Snowflake \\
-\textbf{DevOps \& Cloud:} Docker, AWS (EC2, RDS, S3, ECS), Azure DevOps \\
-\textbf{Messaging \& Queues:} RabbitMQ, Celery, WebSockets \\
-\textbf{Tools \& Libraries:} NumPy, Pandas, Matplotlib, LangChain \\
-\textbf{Core Concepts:} CI/CD, ETL, Data Warehousing, Microservices, LLM Systems
+\textbf{AI/ML \& GenAI:} LangChain, RAG Pipelines, ChromaDB, Vector Databases, Embeddings, NLP, Recommendation Systems, Prompt Engineering, OpenAI API \\
+\textbf{Languages:} Python, Go, SQL, TypeScript \\
+\textbf{Backend:} FastAPI, Django, Flask, Gin, REST APIs, WebSockets \\
+\textbf{Databases:} PostgreSQL, MySQL, MongoDB, SQLite, Snowflake, Redis \\
+\textbf{Cloud \& DevOps:} AWS (EC2, RDS, S3, ECS, Chime, EventBridge, SQS), Docker, CI/CD, Azure DevOps \\
+\textbf{Messaging:} RabbitMQ, Celery, Dead-Letter Queuing \\
+\textbf{Integrations:} Third-Party API Integrations, Webhooks, Payment Gateway Integrations, VoIP Implementation \\
+\textbf{Data \& Analytics:} NumPy, Pandas, Airflow, Power BI, Tableau, dbt
 
 % ── Experience ────────────────────────────────────────────────────────────────
 \section{Experience}
 
-\job{AI/ML Engineer}{Centocode Technologies}{https://www.centocode.com}{Sep 2024 -- Present}
+\job{AI/ML Engineer - Tech Lead}{Centocode Technologies}{https://www.centocode.com}{Sep 2024 -- Present | Remote}
 \begin{itemize}
-  \item Built RAG-based AI systems using LLMs and ChromaDB, reducing information retrieval time by \textasciitilde40\% through optimized embedding and retrieval pipelines
-  \item Developed natural language search systems for structured datasets, improving accessibility for non-technical users
-  \item Designed and deployed recommendation engines using NLP and content-based filtering, integrated into a React Native app
-  \item Built and maintained vector data pipelines, enabling low-latency embedding generation and retrieval
-  \item Built backend services for a \textbf{WhatsApp API SaaS platform}: webhook ingestion, message workflows, and campaign execution; implemented RabbitMQ-based event-driven architecture processing \textasciitilde150K+ messages/month with retry mechanisms and dead-letter queuing
-  \item Developed an \textbf{LLM-based Interview Platform} (AWS: Chime, EventBridge, SQS, RDS): enabled real-time interview sessions with asynchronous evaluation pipelines
-  \item Worked on an \textbf{Offline Navigation System} (Ubuntu, C++, QML, OSRM): implemented routing and GPS tracking in fully offline environments
-  \item Contributed to \textbf{ClimAnalytix} (Climate Analytics Platform): built pipelines for climate datasets (rainfall, temperature, crop data) and enabled geospatial analytics for risk assessment across regions in India
+  \item Served as tech lead for a 12-person cross-functional team across backend, frontend, and mobile; responsible for tech stack decisions, system architecture, PR reviews, and sprint delivery
+  \item Conducted technical research and feasibility scoping for new product features; translated business requirements into implementation roadmaps
+  \item Built and maintained a SaaS automation platform serving 50+ active businesses, processing thousands of campaigns monthly: webhook ingestion, message workflows, rule-based chatbot, campaign execution engine on RabbitMQ (\textasciitilde150K+ messages/month) with retry logic and dead-letter queuing, and VoIP implementation for call workflows
+  \item Integrated third-party APIs and services into a unified commerce automation platform, including webhook-based connectors, lead ingestion, and payment integrations
+  \item Built production RAG systems using LLMs and ChromaDB, reducing information retrieval time by \textasciitilde40\% through optimized embedding and retrieval pipelines
+  \item Developed natural language search over structured datasets, enabling non-technical users to query data without SQL
+  \item Designed and deployed NLP-based recommendation engines integrated into a React Native mobile app
+  \item Developed an LLM-based Interview Platform on AWS (Chime, EventBridge, SQS, RDS): real-time interview sessions with asynchronous AI evaluation pipelines
+  \item Contributed across the full product stack: backend APIs (FastAPI/Go), frontend features, and React Native mobile advisory inputs
 \end{itemize}
 
-\job{Senior Data Scientist}{1ViewApps}{https://1viewapps.com/etl/}{Feb 2024 -- Aug 2024}
+\job{Senior Data Scientist}{1ViewApps}{https://1viewapps.com/etl/}{Feb 2024 -- Aug 2024 | Remote}
 \begin{itemize}
-  \item Built AI-powered features including search, chatbots, and data visualization using LLMs and LangChain
+  \item Built AI-powered search, chatbot, and data visualization features using LLMs and LangChain
   \item Designed modular ETL pipelines for structured and semi-structured data from multiple sources
-  \item Implemented CI/CD pipelines using AWS and Azure DevOps
-  \item Automated data workflows using Airflow, improving reliability of daily data refresh cycles
+  \item Automated daily data workflows using Airflow, improving pipeline reliability and reducing manual intervention
+  \item Implemented CI/CD pipelines across AWS and Azure DevOps
 \end{itemize}
 
 \job{Associate Data Scientist}{KDataScience Solutions Pvt. Ltd.}{https://kdatascience.com/}{Jun 2023 -- Feb 2024}
 \begin{itemize}
-  \item Developed data pipelines using Python for large-scale data ingestion and processing
-  \item Built backend services for on-demand data processing
-  \item Designed pipelines for Power BI integration using Python and MSSQL
-  \item Optimized data workflows for performance and scalability
+  \item Built Python-based data pipelines for large-scale ingestion and processing
+  \item Designed Power BI and Tableau integration pipelines using Python and MSSQL
+  \item Developed backend services for on-demand data processing with focus on performance and scalability
 \end{itemize}
 
-% ── Education & Certifications ────────────────────────────────────────────────
+% ── Writing & Public Work ─────────────────────────────────────────────────────
+\section{Writing \& Public Work}
+
+\textbf{Technical Blog:} \href{https://mathoholic.com/blog}{mathoholic.com/blog} \\
+Writing on backend engineering, distributed systems, and AI/ML in production. Recent posts include RabbitMQ incident diagnosis, Docker build optimization, and reverse proxy architecture.
+
+\textbf{Public Projects:} \href{https://github.com/Mathoholic}{github.com/Mathoholic} \\
+Worker pool systems, concurrent job processors, RAG services, auth playground, and distributed backend infrastructure in Go and Python.
+
+% ── Certifications ─────────────────────────────────────────────────────────────
+\section{Certifications}
+
+\begin{itemize}
+  \item Python for Everybody Specialization -- University of Michigan -- Coursera, May 2023
+  \item Visual Analytics with Tableau -- UC Davis -- Coursera, Apr 2023
+  \item The Complete SQL Bootcamp: Zero to Hero -- Udemy, May 2023
+  \item Microsoft Power BI Desktop for Business Intelligence -- Udemy, Dec 2023
+  \item Data Engineering with dbt -- LinkedIn Learning, Jan 2024
+\end{itemize}
+
+% ── Education ──────────────────────────────────────────────────────────────────
 \section{Education}
 
-\textbf{B.A. Mathematics (Hons)} -- Dr.\ B.R. Ambedkar University Delhi \hfill \textit{2015--2020}
+\textbf{B.A. Mathematics (Hons)} -- Dr.\ B.R.\ Ambedkar University Delhi \hfill \textit{2015--2020}
 
 \end{document}

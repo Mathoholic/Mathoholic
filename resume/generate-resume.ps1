@@ -1,12 +1,12 @@
-# Generate resume PDF from resume.tex using XeLaTeX
+# Generate resume PDF from resume.tex using a LaTeX engine
 
 Write-Host "Generating resume PDF..." -ForegroundColor Green
 
 $outputFile = "output\Shantanu_Sharma_Resume.pdf"
 
-# Find XeLaTeX or LuaLaTeX
+# Find a LaTeX engine (prefer pure LaTeX first)
 $pdfEngine = ""
-foreach ($engine in @("xelatex", "lualatex")) {
+foreach ($engine in @("pdflatex", "xelatex", "lualatex")) {
     try {
         $null = Get-Command $engine -ErrorAction Stop
         $pdfEngine = $engine
@@ -16,7 +16,7 @@ foreach ($engine in @("xelatex", "lualatex")) {
 }
 
 if ($pdfEngine -eq "") {
-    Write-Host "Error: xelatex or lualatex not found. Install MiKTeX or TeX Live." -ForegroundColor Red
+    Write-Host "Error: pdflatex/xelatex/lualatex not found. Install TeX Live." -ForegroundColor Red
     exit 1
 }
 
