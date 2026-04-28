@@ -52,22 +52,6 @@ AI/ML Engineer with hands-on experience building production-grade GenAI systems,
 - Designed Power BI and Tableau integration pipelines using Python and MSSQL
 - Developed backend services for on-demand data processing with focus on performance and scalability
 
-## Writing & Public Work
-
-**Technical Blog - [mathoholic.com/blog](https://mathoholic.com/blog)**  
-Writing on backend engineering, distributed systems, and AI/ML in production. Recent posts: RabbitMQ incident diagnosis, Docker build optimization, reverse proxy architecture.
-
-**Public Projects - [github.com/Mathoholic](https://github.com/Mathoholic)**  
-Worker pool systems, concurrent job processors, RAG services, auth playground, and distributed backend infrastructure in Go and Python.
-
-## Certifications
-
-- Python for Everybody Specialization - University of Michigan - Coursera, May 2023
-- Visual Analytics with Tableau - UC Davis - Coursera, Apr 2023
-- The Complete SQL Bootcamp: Zero to Hero - Udemy, May 2023
-- Microsoft Power BI Desktop for Business Intelligence - Udemy, Dec 2023
-- Data Engineering with dbt - LinkedIn Learning, Jan 2024
-
 ## Education
 
 **B.A. Mathematics (Hons)** - Dr. B.R. Ambedkar University Delhi *(2015 - 2020)*
